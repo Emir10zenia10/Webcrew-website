@@ -202,13 +202,13 @@ export function HomeSections() {
         </div>
 
         <div className="insightsGrid">
-          <article><span>STRATÉGIE</span><h3>Le Digital Perception Gap</h3><p>Pourquoi certaines entreprises sont meilleures que l’image qu’elles projettent — et comment réduire cet écart.</p><b>Lire bientôt →</b></article>
-          <article><span>TECHNOLOGIE</span><h3>Framer, Shopify ou custom ?</h3><p>Choisir le système qui sert le modèle économique, les équipes et le niveau d’ambition.</p><b>Lire bientôt →</b></article>
-          <article><span>SEARCH</span><h3>Refondre sans sacrifier le SEO</h3><p>Préserver ce qui fonctionne, migrer proprement et reconstruire les fondations qui limitent la visibilité.</p><b>Lire bientôt →</b></article>
+          <article><span>STRATÉGIE</span><h3>Le Digital Perception Gap</h3><p>Pourquoi certaines entreprises sont meilleures que l’image qu’elles projettent — et comment réduire cet écart.</p><b>En préparation</b></article>
+          <article><span>TECHNOLOGIE</span><h3>Framer, Shopify ou custom ?</h3><p>Choisir le système qui sert le modèle économique, les équipes et le niveau d’ambition.</p><b>En préparation</b></article>
+          <article><span>SEARCH</span><h3>Refondre sans sacrifier le SEO</h3><p>Préserver ce qui fonctionne, migrer proprement et reconstruire les fondations qui limitent la visibilité.</p><b>En préparation</b></article>
         </div>
       </section>
 
-      <section className="partnerSection" aria-label="Système d’apport d’affaires">
+      <section className="partnerSection" id="partenaires" aria-label="Système d’apport d’affaires">
         <div>
           <div className="eyebrow">PARTENAIRES</div>
           <h2>Vous faites l’introduction.<br />Nous prenons la suite.</h2>
@@ -235,7 +235,7 @@ export function HomeSections() {
         <div className="footerLinks">
           <div><span>EXPERTISE</span><a href="#expertises">Sites web</a><a href="#expertises">E-commerce</a><a href="#approche">SEO & stratégie</a></div>
           <div><span>WEBCREW</span><a href="#realisations">Réalisations</a><a href="#insights">Insights</a><a href="#apropos">À propos</a></div>
-          <div><span>CONTACT</span><Link href="/demande-de-devis">Parler du projet</Link><a href="#partenaires" id="partenaires">Partenaires</a></div>
+          <div><span>CONTACT</span><Link href="/demande-de-devis">Parler du projet</Link><a href="#partenaires">Partenaires</a></div>
         </div>
         <div className="footerBottom"><span>© WebCrew 2026</span><span>Mentions légales · Confidentialité</span></div>
       </footer>
