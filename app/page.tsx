@@ -5,7 +5,7 @@ import { HomeSections } from "@/components/HomeSections";
 
 export default function Page() {
   return (
-    <main>
+    <main id="main-content">
       <Header />
       <Hero />
       <PerceptionGap />
