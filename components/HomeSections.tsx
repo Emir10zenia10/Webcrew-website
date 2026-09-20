@@ -9,10 +9,10 @@ const outcomes = [
 ] as const;
 
 const method = [
-  ["01", "Business", "Comprendre l’entreprise, son offre, ses acheteurs et ce qui a réellement changé."],
-  ["02", "Strategy", "Clarifier le positionnement, la structure, les parcours et les priorités commerciales."],
-  ["03", "Design & Build", "Transformer la stratégie en expérience, système visuel et produit digital robuste."],
-  ["04", "Launch & Improve", "Migrer proprement, mesurer, apprendre et faire évoluer ce qui compte."],
+  ["01", "Comprendre", "Comprendre l’entreprise, son offre, ses acheteurs et ce qui a réellement changé."],
+  ["02", "Cadrer", "Clarifier le positionnement, la structure, les parcours et les priorités commerciales."],
+  ["03", "Concevoir & construire", "Transformer la stratégie en expérience, système visuel et produit digital robuste."],
+  ["04", "Lancer & améliorer", "Migrer proprement, mesurer, apprendre et faire évoluer ce qui compte."],
 ] as const;
 
 const technology = [
@@ -30,8 +30,8 @@ function CleanyWorkVisual() {
       <div className="cleanyMockBody">
         <div className="cleanyMockCopy">
           <span>◉ Cleany</span>
-          <strong>Des espaces plus sains pour des entreprises plus fortes.</strong>
-          <small>Propreté · Office Life · Multitechnique</small>
+          <strong>Propreté · Office Life · Multitechnique</strong>
+          <small>REFONTE B2B · FRAMER · SEO</small>
         </div>
         <div className="cleanyMockMedia">
           <div className="mockArchitecture"><b /><b /><i /><i /></div>
@@ -61,8 +61,8 @@ function MpWorkVisual() {
     <div className="workMock mpMock">
       <div className="mpEditorial">
         <span>MADEMOISELLE PARISIENNE</span>
-        <strong>Paris,<br />en mouvement.</strong>
-        <small>SHOPIFY / BRAND</small>
+        <strong>Shopify<br />& identité de marque.</strong>
+        <small>PROJECTION VISUELLE — ASSET RÉEL À INTÉGRER</small>
       </div>
       <div className="mpPhoto"><span>VISUEL E-COMMERCE À INTÉGRER</span></div>
     </div>
@@ -183,7 +183,7 @@ export function HomeSections() {
             <div className="caseDevice caseDeviceDesktop">
               <div className="caseBrowserBar"><i /><i /><i /><span>cleany.fr</span></div>
               <div className="caseMediaPlaceholder caseMediaRich">
-                <div className="caseMediaCopy"><span>◉ Cleany</span><strong>Des espaces plus sains pour des entreprises plus fortes.</strong></div>
+                <div className="caseMediaCopy"><span>◉ Cleany</span><strong>Propreté · Office Life · Multitechnique</strong></div>
                 <div className="caseMediaArt"><b /><b /><i /><i /></div>
                 <em>VRAIE CAPTURE À INTÉGRER</em>
               </div>
@@ -260,7 +260,7 @@ export function HomeSections() {
 
       <section className="founderSection" id="apropos" aria-labelledby="founder-title">
         <Reveal className="founderMedia">
-          <div className="founderMediaTop"><span>FOUNDER / POINT OF VIEW</span><span>00:58</span></div>
+          <div className="founderMediaTop"><span>FOUNDER / POINT OF VIEW</span><span>À VENIR</span></div>
           <div className="founderVideoPlaceholder">
             <div className="founderPlayPlaceholder" aria-hidden="true"><span>▶</span></div>
             <p>VIDÉO FONDATEUR À INTÉGRER</p>
@@ -286,7 +286,7 @@ export function HomeSections() {
 
         <div className="insightsGrid">
           {[
-            ["STRATÉGIE","Le Digital Perception Gap","Pourquoi certaines entreprises sont meilleures que l’image qu’elles projettent — et comment réduire cet écart."],
+            ["STRATÉGIE","Quand le site ne reflète plus l’entreprise","Pourquoi certaines entreprises sont meilleures que l’image qu’elles projettent — et comment réduire cet écart."],
             ["TECHNOLOGIE","Framer, Shopify ou custom ?","Choisir le système qui sert le modèle économique, les équipes et le niveau d’ambition."],
             ["SEARCH","Refondre sans sacrifier le SEO","Préserver ce qui fonctionne, migrer proprement et reconstruire les fondations qui limitent la visibilité."],
           ].map(([kicker,title,copy], index)=>(
