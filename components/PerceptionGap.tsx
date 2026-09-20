@@ -13,7 +13,7 @@ export function PerceptionGap() {
   const glowOpacity = useTransform(scrollYProgress, [0.15, 0.72], [0.08, 0.42]);
 
   return (
-    <section className="gapSection" ref={ref} id="approche" data-atmosphere="paper" aria-labelledby="gap-title">
+    <section className="gapSection" ref={ref} id="approche" aria-labelledby="gap-title">
       <div className="gapTopMark"><span /></div>
       <div className="gapGrid">
         <div className="gapHeading">
