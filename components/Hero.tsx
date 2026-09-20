@@ -1,15 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { useRef } from "react";
 import type { MouseEvent } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
   const rx = useSpring(useMotionValue(0), { stiffness: 95, damping: 20, mass: 0.7 });
   const ry = useSpring(useMotionValue(0), { stiffness: 95, damping: 20, mass: 0.7 });
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const sceneY = useTransform(scrollYProgress, [0, 1], [0, -62]);
+  const sceneScale = useTransform(scrollYProgress, [0, 0.85], [1, 0.94]);
+  const farY = useTransform(scrollYProgress, [0, 1], [0, -18]);
+  const midY = useTransform(scrollYProgress, [0, 1], [0, -42]);
+  const frontY = useTransform(scrollYProgress, [0, 1], [0, -88]);
+  const orbitRotate = useTransform(scrollYProgress, [0, 1], [0, 42]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -24]);
 
   const move = (event: MouseEvent<HTMLDivElement>) => {
     if (reducedMotion) return;
@@ -22,9 +32,9 @@ export function Hero() {
   const reset = () => { rx.set(0); ry.set(0); };
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero" ref={heroRef} aria-labelledby="hero-title">
       <div className="heroInner">
-        <motion.div className="heroCopy" initial={reducedMotion ? false : "hidden"} animate="show"
+        <motion.div className="heroCopy" style={reducedMotion ? undefined : { y: copyY }} initial={reducedMotion ? false : "hidden"} animate="show"
           variants={{ show: { transition: { staggerChildren: 0.07, delayChildren: 0.08 } } }}>
           <motion.div className="eyebrow"
             variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } } }}>
@@ -47,15 +57,17 @@ export function Hero() {
         </motion.div>
 
         <motion.div className="heroScene" onMouseMove={move} onMouseLeave={reset}
-          style={{ rotateX: rx, rotateY: ry }}
+          style={reducedMotion ? undefined : { rotateX: rx, rotateY: ry, y: sceneY, scale: sceneScale }}
           initial={reducedMotion ? false : { scale: 0.985, x: 24 }}
           animate={{ scale: 1, x: 0 }}
           transition={{ duration: 0.92, delay: 0.2, ease }}
           aria-label="Projection visuelle de l’expertise WebCrew">
-          <div className="sceneAura" />
-          <div className="scenePlane scenePlaneFar" />
-          <div className="scenePlane scenePlaneMid" />
-          <div className="scenePlane scenePlaneNear" />
+          <motion.div className="sceneAura" style={reducedMotion ? undefined : { y: farY }} />
+          <motion.div className="sceneOrbit sceneOrbitOuter" style={reducedMotion ? undefined : { rotate: orbitRotate }} />
+          <motion.div className="sceneOrbit sceneOrbitInner" style={reducedMotion ? undefined : { rotate: orbitRotate }} />
+          <motion.div className="scenePlane scenePlaneFar" style={reducedMotion ? undefined : { y: farY }} />
+          <motion.div className="scenePlane scenePlaneMid" style={reducedMotion ? undefined : { y: midY }} />
+          <motion.div className="scenePlane scenePlaneNear" style={reducedMotion ? undefined : { y: frontY }} />
           <div className="sceneVerticalLabel sceneVerticalLabelLeft" aria-hidden="true">
             <span>STRATÉGIE</span><span>BRAND</span><span>EXPÉRIENCE</span><span>TECHNOLOGIE</span><span>SEARCH</span>
           </div>
@@ -68,27 +80,27 @@ export function Hero() {
             <i />
           </div>
 
-          <div className="insightCard insightCardSearch">
+          <motion.div className="insightCard insightCardSearch" style={reducedMotion ? undefined : { y: frontY }}>
             <span className="insightKicker">VISIBILITÉ</span><strong>SEO</strong>
             <svg viewBox="0 0 120 54" role="img" aria-label="Illustration de progression SEO">
               <path className="chartGrid" d="M4 45H116M4 28H116M4 11H116" />
               <path className="chartLine" d="M5 42 C18 38 21 29 32 31 S49 22 58 25 S73 13 84 17 S101 8 115 6" />
             </svg>
             <small>Architecture · contenu · migration</small>
-          </div>
+          </motion.div>
 
-          <div className="insightCard insightCardCommerce">
+          <motion.div className="insightCard insightCardCommerce" style={reducedMotion ? undefined : { y: midY }}>
             <span className="insightKicker">COMMERCE</span><strong>Shopify</strong>
             <div className="commerceBars" aria-hidden="true"><i /><i /><i /><i /><i /></div>
             <small>Conversion · autonomie · opérations</small>
-          </div>
+          </motion.div>
 
-          <div className="mobilePreview" aria-hidden="true">
+          <motion.div className="mobilePreview" style={reducedMotion ? undefined : { y: frontY }} aria-hidden="true">
             <div className="mobileNotch" /><span className="mobileBrand">Cleany</span>
             <strong>Un environnement<br />plus simple.</strong><div className="mobileMedia"><i /></div>
-          </div>
+          </motion.div>
 
-          <div className="mainDevice">
+          <motion.div className="mainDevice" style={reducedMotion ? undefined : { y: midY }}>
             <div className="browserTop">
               <div className="browserDots"><span /><span /><span /></div>
               <div className="browserNav">Solutions&nbsp;&nbsp;&nbsp; Réalisations&nbsp;&nbsp;&nbsp; À propos</div>
@@ -109,7 +121,11 @@ export function Hero() {
                 <span className="realAssetBadge">CAPTURE CLEANY À REMPLACER</span>
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          <div className="depthChip depthChipStrategy" aria-hidden="true"><span>01</span><strong>Strategy</strong></div>
+          <div className="depthChip depthChipExperience" aria-hidden="true"><span>02</span><strong>Experience</strong></div>
+          <div className="depthChip depthChipBuild" aria-hidden="true"><span>03</span><strong>Build</strong></div>
 
           <div className="rearMedia rearMediaA"><span>CASE STUDY</span></div>
           <div className="rearMedia rearMediaB"><span>UX / UI</span></div>
