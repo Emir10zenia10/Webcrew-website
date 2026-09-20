@@ -23,6 +23,11 @@ export function Hero() {
   const frontY = useTransform(scrollYProgress, [0, 1], [0, -82]);
   const orbitRotate = useTransform(scrollYProgress, [0, 1], [0, 34]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, -22]);
+  const deviceX = useTransform(scrollYProgress, [0, 1], [54, 0]);
+  const deviceRotate = useTransform(scrollYProgress, [0, 1], [-4.5, 0]);
+  const frontX = useTransform(scrollYProgress, [0, 1], [-34, 0]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [0, -46]);
+  const orbRotate = useTransform(scrollYProgress, [0, 1], [0, 95]);
 
   const move = (event: MouseEvent<HTMLDivElement>) => {
     if (reducedMotion) return;
@@ -90,6 +95,14 @@ export function Hero() {
           aria-label="Projection visuelle de l’expertise WebCrew"
         >
           <HeroWebGL />
+          <motion.div className="heroOrbWrap" style={reducedMotion ? undefined : { y: orbY, rotate: orbRotate }}>
+            <div className="heroOrb" aria-hidden="true">
+              <span className="heroOrbCore" />
+              <span className="heroOrbRing heroOrbRingA" />
+              <span className="heroOrbRing heroOrbRingB" />
+              <span className="heroOrbRing heroOrbRingC" />
+            </div>
+          </motion.div>
 
           <motion.div className="motionLayer motionLayerFar" style={reducedMotion ? undefined : { y: farY }}>
             <div className="sceneAura" />
@@ -166,7 +179,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          <motion.div className="motionLayer motionLayerFront" style={reducedMotion ? undefined : { y: frontY }}>
+          <motion.div className="motionLayer motionLayerFront" style={reducedMotion ? undefined : { y: frontY, x: frontX }}>
             <div className="mobilePreview" aria-hidden="true">
               <div className="mobileNotch" />
               <span className="mobileBrand">Cleany</span>
@@ -175,7 +188,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          <motion.div className="motionLayer motionLayerMid" style={reducedMotion ? undefined : { y: midY }}>
+          <motion.div className="motionLayer motionLayerDevice" style={reducedMotion ? undefined : { y: midY, x: deviceX, rotateZ: deviceRotate }}>
             <div className="mainDevice">
               <div className="browserTop">
                 <div className="browserDots"><span /><span /><span /></div>
@@ -209,8 +222,18 @@ export function Hero() {
           <div className="depthChip depthChipExperience" aria-hidden="true"><span>02</span><strong>Experience</strong></div>
           <div className="depthChip depthChipBuild" aria-hidden="true"><span>03</span><strong>Build</strong></div>
 
-          <div className="rearMedia rearMediaA"><span>CASE STUDY</span></div>
-          <div className="rearMedia rearMediaB"><span>UX / UI</span></div>
+          <div className="rearMedia rearMediaA">
+            <span>CASE STUDY</span>
+            <strong>Cleany</strong>
+          </div>
+          <div className="rearMedia rearMediaB">
+            <span>COMMERCE</span>
+            <strong>Shopify</strong>
+          </div>
+          <div className="rearMedia rearMediaC">
+            <span>SEARCH</span>
+            <strong>SEO / GEO</strong>
+          </div>
 
           <div className="rearCode" aria-hidden="true">
             <div><span>01</span><b>strategy</b></div>
