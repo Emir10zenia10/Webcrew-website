@@ -10,50 +10,60 @@ export function ScrollAtmosphere() {
   useEffect(() => {
     let raf = 0;
 
+    const commitTheme = (next: string) => {
+      if (!allowed.has(next)) return;
+      setTheme(current => current === next ? current : next);
+      document.documentElement.dataset.atmosphere = next;
+    };
+
     const update = () => {
       raf = 0;
-      const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-atmosphere]"));
-      if (!sections.length) return;
 
-      const focusY = window.innerHeight * 0.52;
-      let closest = sections[0];
-      let closestDistance = Number.POSITIVE_INFINITY;
+      const x = Math.min(window.innerWidth - 1, Math.max(1, window.innerWidth * 0.5));
+      const y = Math.min(window.innerHeight - 1, Math.max(1, window.innerHeight * 0.5));
+      const hit = document.elementFromPoint(x, y) as HTMLElement | null;
+      const direct = hit?.closest<HTMLElement>("[data-atmosphere]");
+
+      if (direct?.dataset.atmosphere) {
+        commitTheme(direct.dataset.atmosphere);
+        return;
+      }
+
+      const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-atmosphere]"));
+      let active: HTMLElement | null = null;
+      let bestDistance = Number.POSITIVE_INFINITY;
 
       for (const section of sections) {
         const rect = section.getBoundingClientRect();
-        const visible = rect.bottom > 0 && rect.top < window.innerHeight;
-        if (!visible) continue;
-
-        const sectionFocus = Math.min(Math.max(focusY, rect.top), rect.bottom);
-        const distance = Math.abs(sectionFocus - focusY);
-
-        if (distance < closestDistance) {
-          closest = section;
-          closestDistance = distance;
+        const center = rect.top + rect.height * 0.5;
+        const distance = Math.abs(center - y);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          active = section;
         }
       }
 
-      const next = closest.dataset.atmosphere || "ivory";
-      if (allowed.has(next)) setTheme(next);
+      commitTheme(active?.dataset.atmosphere || "ivory");
     };
 
-    const onScroll = () => {
+    const requestUpdate = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
 
     update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      delete document.documentElement.dataset.atmosphere;
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
     };
   }, []);
 
   return (
-    <div className={`scrollAtmosphere atmosphere-${theme}`} aria-hidden="true">
+    <div className={`scrollAtmosphere atmosphere-${theme}`} data-theme={theme} aria-hidden="true">
       <div className="atmosphereBase" />
       <div className="atmosphereGlow atmosphereGlowA" />
       <div className="atmosphereGlow atmosphereGlowB" />
