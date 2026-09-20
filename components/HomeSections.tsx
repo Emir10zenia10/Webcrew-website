@@ -33,9 +33,9 @@ function CleanyWorkVisual() {
           <strong>Propreté · Office Life · Multitechnique</strong>
           <small>REFONTE B2B · FRAMER · SEO</small>
         </div>
-        <div className="cleanyMockMedia">
-          <div className="mockArchitecture"><b /><b /><i /><i /></div>
-          <span>VRAIE CAPTURE CLEANY À INTÉGRER</span>
+        <div className="cleanyMockMedia cleanyMockMediaLive">
+          <img src="https://framerusercontent.com/images/KtYAHPwJkffUodi86sKuP0eHI.png?height=1086&width=1448" alt="Projet Cleany — agente dans des bureaux lumineux" />
+          <span>PROJET LIVE · CLEANY.FR</span>
         </div>
       </div>
     </div>
@@ -182,14 +182,14 @@ export function HomeSections() {
           <div className="featuredCaseVisual">
             <div className="caseDevice caseDeviceDesktop">
               <div className="caseBrowserBar"><i /><i /><i /><span>cleany.fr</span></div>
-              <div className="caseMediaPlaceholder caseMediaRich">
-                <div className="caseMediaCopy"><span>◉ Cleany</span><strong>Propreté · Office Life · Multitechnique</strong></div>
-                <div className="caseMediaArt"><b /><b /><i /><i /></div>
-                <em>VRAIE CAPTURE À INTÉGRER</em>
+              <div className="caseMediaPlaceholder caseMediaRich caseMediaLive">
+                <img src="https://framerusercontent.com/images/iekzfh5sDC2MI1jlVNuobUG6dE.png?height=1080&width=1920" alt="Tableau de bord de pilotage Cleany" />
+                <div className="caseMediaCopy"><span>◉ Cleany</span><strong>Le nettoyage n’est plus une boîte noire.</strong></div>
+                <em>PROJET LIVE · CLEANY.FR</em>
               </div>
             </div>
             <div className="caseDevice caseDeviceMobile">
-              <div className="caseMediaPlaceholder"><strong>MOBILE</strong><span>Capture à intégrer</span></div>
+              <div className="caseMediaPlaceholder caseMobileLive"><img src="https://framerusercontent.com/images/KtYAHPwJkffUodi86sKuP0eHI.png?height=1086&width=1448" alt="" /><strong>MOBILE</strong><span>Cleany.fr</span></div>
             </div>
             <div className="caseSystemCard">
               <span>SYSTÈME</span>
