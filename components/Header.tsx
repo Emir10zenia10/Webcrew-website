@@ -3,44 +3,186 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const navItems = [
+type MegaItem = {
+  title: string;
+  subtitle: string;
+  href: string;
+};
+
+type MegaGroup = {
+  title: string;
+  items: MegaItem[];
+};
+
+type NavItem = {
+  label: string;
+  href: string;
+  intro: string;
+  groups: MegaGroup[];
+  visual: {
+    eyebrow: string;
+    title: string;
+    meta: string;
+    variant: "work" | "services" | "insights" | "about";
+  };
+};
+
+const navItems: NavItem[] = [
   {
     label: "Réalisations",
     href: "#realisations",
-    items: [
-      ["Cleany", "Site B2B · Framer · SEO", "#realisations"],
-      ["Acier Shop", "Shopify · Industrie", "#realisations"],
-      ["Mademoiselle Parisienne", "Shopify · Brand", "#realisations"],
+    intro: "Des refontes pensées pour la réalité du business, pas pour remplir un portfolio.",
+    groups: [
+      {
+        title: "Sélection",
+        items: [
+          { title: "Cleany", subtitle: "B2B · Framer · SEO", href: "#realisations" },
+          { title: "Acier Shop", subtitle: "Shopify · Industrie", href: "#realisations" },
+          { title: "Mademoiselle Parisienne", subtitle: "Shopify · Brand", href: "#realisations" },
+        ],
+      },
+      {
+        title: "Explorer",
+        items: [
+          { title: "Tous les projets", subtitle: "Voir la sélection WebCrew", href: "#realisations" },
+          { title: "Notre méthode", subtitle: "De la stratégie au lancement", href: "#methodologie" },
+        ],
+      },
     ],
+    visual: {
+      eyebrow: "PROJET MIS EN AVANT",
+      title: "Cleany",
+      meta: "Refonte B2B · Framer · Search",
+      variant: "work",
+    },
   },
   {
     label: "Expertises",
     href: "#expertises",
-    items: [
-      ["Sites web", "Refonte, UX/UI, Framer", "#expertises"],
-      ["E-commerce", "Shopify, migration, conversion", "#expertises"],
-      ["Search", "SEO, GEO, migration", "#expertises"],
+    intro: "Stratégie, design, technologie et search réunis autour du même objectif : faire avancer le business.",
+    groups: [
+      {
+        title: "Sites web",
+        items: [
+          { title: "Refonte de site", subtitle: "Positionnement, architecture, conversion", href: "#expertises" },
+          { title: "UX / UI", subtitle: "Parcours, design system, expérience", href: "#expertises" },
+          { title: "Framer", subtitle: "Build premium et autonomie", href: "#expertises" },
+        ],
+      },
+      {
+        title: "E-commerce",
+        items: [
+          { title: "Shopify", subtitle: "Commerce, catalogue, performance", href: "#expertises" },
+          { title: "Migration", subtitle: "PrestaShop / WordPress → Shopify", href: "#expertises" },
+          { title: "Conversion", subtitle: "CRO, parcours produit, tracking", href: "#expertises" },
+        ],
+      },
+      {
+        title: "Search & Creative Tech",
+        items: [
+          { title: "SEO / GEO", subtitle: "Architecture, contenu, migration", href: "#expertises" },
+          { title: "Motion & 3D", subtitle: "Interactions quand elles servent le message", href: "#expertises" },
+          { title: "AI & Custom", subtitle: "Automatisation et expériences sur mesure", href: "#expertises" },
+        ],
+      },
     ],
+    visual: {
+      eyebrow: "NOTRE TERRAIN DE JEU",
+      title: "Strategy × Design × Build",
+      meta: "Framer · Shopify · Search · Creative Tech",
+      variant: "services",
+    },
   },
   {
     label: "Insights",
     href: "#insights",
-    items: [
-      ["Perception digitale", "Positionnement & crédibilité", "#insights"],
-      ["Choix de stack", "Framer, Shopify ou custom", "#insights"],
-      ["Refonte & SEO", "Préserver ce qui fonctionne", "#insights"],
+    intro: "Nos réflexions sur la perception, le design, la technologie et la croissance digitale.",
+    groups: [
+      {
+        title: "À lire",
+        items: [
+          { title: "Perception digitale", subtitle: "Pourquoi un bon business peut paraître moyen en ligne", href: "#insights" },
+          { title: "Framer, Shopify ou custom ?", subtitle: "Choisir selon le modèle économique", href: "#insights" },
+          { title: "Refonte & SEO", subtitle: "Préserver ce qui fonctionne", href: "#insights" },
+        ],
+      },
+      {
+        title: "Sujets",
+        items: [
+          { title: "Conversion", subtitle: "Clarté, friction et intention", href: "#insights" },
+          { title: "Autonomie", subtitle: "Donner la main aux équipes", href: "#insights" },
+        ],
+      },
     ],
+    visual: {
+      eyebrow: "DERNIER SUJET",
+      title: "Une entreprise peut être meilleure que ce que son site laisse paraître.",
+      meta: "Perception · Positionnement · Digital",
+      variant: "insights",
+    },
   },
   {
     label: "À propos",
     href: "#apropos",
-    items: [
-      ["Notre manière de penser", "Business avant design", "#apropos"],
-      ["Méthode", "De la stratégie au lancement", "#methodologie"],
-      ["Partenaires", "Apport d’affaires", "#partenaires"],
+    intro: "Une agence construite autour d’une conviction simple : comprendre le business avant de dessiner l’interface.",
+    groups: [
+      {
+        title: "WebCrew",
+        items: [
+          { title: "Notre manière de penser", subtitle: "Business avant design", href: "#apropos" },
+          { title: "Méthode", subtitle: "Business → Strategy → Build → Improve", href: "#methodologie" },
+          { title: "Partenaires", subtitle: "Apport d’affaires & collaborations", href: "#partenaires" },
+        ],
+      },
+      {
+        title: "Commencer",
+        items: [
+          { title: "Parler de votre projet", subtitle: "Un premier échange simple", href: "/demande-de-devis" },
+        ],
+      },
     ],
+    visual: {
+      eyebrow: "WEBCREW · NANTES",
+      title: "Le digital doit suivre le niveau réel de l’entreprise.",
+      meta: "Stratégie · Design · Framer · Shopify",
+      variant: "about",
+    },
   },
-] as const;
+];
+
+function MegaVisual({ visual }: { visual: NavItem["visual"] }) {
+  return (
+    <div className={`megaVisual megaVisual--${visual.variant}`}>
+      <div className="megaVisualTop">
+        <span>{visual.eyebrow}</span>
+        <i aria-hidden="true">↗</i>
+      </div>
+
+      <div className="megaVisualCanvas" aria-hidden="true">
+        <div className="megaVisualGrid" />
+        <div className="megaVisualWindow megaVisualWindowBack">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="megaVisualWindow megaVisualWindowFront">
+          <div className="megaVisualWindowBar"><i /><i /><i /></div>
+          <div className="megaVisualWindowBody">
+            <b />
+            <b />
+            <b />
+          </div>
+        </div>
+        <div className="megaVisualOrb" />
+      </div>
+
+      <div className="megaVisualCopy">
+        <strong>{visual.title}</strong>
+        <span>{visual.meta}</span>
+      </div>
+    </div>
+  );
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -48,6 +190,22 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const lastY = useRef(0);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openMenu = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(label);
+    setHidden(false);
+  };
+
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 140);
+  };
+
+  const cancelClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
 
   useEffect(() => {
     lastY.current = window.scrollY;
@@ -79,7 +237,9 @@ export function Header() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("keydown", onKeyDown);
+
     return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("keydown", onKeyDown);
     };
@@ -88,39 +248,26 @@ export function Header() {
   return (
     <>
       <a className="skipLink" href="#main-content">Aller au contenu</a>
-      <header className={`siteHeader ${hidden ? "headerHidden" : ""} ${scrolled ? "headerScrolled" : "headerAtTop"} ${open ? "menuOpen" : ""}`}>
+
+      <header className={`siteHeader ${hidden ? "headerHidden" : ""} ${scrolled ? "headerScrolled" : "headerAtTop"} ${open ? "menuOpen" : ""} ${activeMenu ? "megaOpen" : ""}`}>
         <div className="siteHeaderInner">
           <Link href="/" className="brandLockup" aria-label="WebCrew — accueil" onClick={() => setOpen(false)}>
             <span className="brandWord">WebCrew</span>
             <span className="brandDot" aria-hidden="true" />
           </Link>
 
-          <nav className="mainNav" aria-label="Navigation principale" onMouseLeave={() => setActiveMenu(null)}>
+          <nav className="mainNav" aria-label="Navigation principale" onMouseLeave={scheduleClose}>
             {navItems.map((item) => (
               <div
                 className="navItem"
                 key={item.label}
-                onMouseEnter={() => setActiveMenu(item.label)}
-                onFocus={() => setActiveMenu(item.label)}
+                onMouseEnter={() => openMenu(item.label)}
+                onFocus={() => openMenu(item.label)}
               >
                 <a href={item.href} aria-expanded={activeMenu === item.label}>
                   {item.label}
                   <span className="navChevron" aria-hidden="true">⌄</span>
                 </a>
-                <div className={`navDropdown ${activeMenu === item.label ? "navDropdownVisible" : ""}`}>
-                  <div className="navDropdownInner">
-                    {item.items.map(([title, subtitle, href], index) => (
-                      <a href={href} key={title} className="navSubItem">
-                        <span className="navSubIndex">0{index + 1}</span>
-                        <span className="navSubText">
-                          <strong>{title}</strong>
-                          <small>{subtitle}</small>
-                        </span>
-                        <i aria-hidden="true">↘</i>
-                      </a>
-                    ))}
-                  </div>
-                </div>
               </div>
             ))}
           </nav>
@@ -130,6 +277,7 @@ export function Header() {
               <span>Parler de votre projet</span>
               <span className="ctaArrow" aria-hidden="true">↗</span>
             </Link>
+
             <button
               className="mobileMenuButton"
               type="button"
@@ -143,16 +291,58 @@ export function Header() {
           </div>
         </div>
 
+        <div
+          className={`megaMenuShell ${activeMenu ? "megaMenuShellVisible" : ""}`}
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
+        >
+          {navItems.map((item) => (
+            <div
+              className={`megaMenu ${activeMenu === item.label ? "megaMenuActive" : ""}`}
+              aria-hidden={activeMenu !== item.label}
+              key={item.label}
+            >
+              <div className="megaMenuIntro">
+                <span>{item.label}</span>
+                <p>{item.intro}</p>
+                <a href={item.href}>Tout voir <i aria-hidden="true">↗</i></a>
+              </div>
+
+              <div className="megaMenuGroups">
+                {item.groups.map((group) => (
+                  <div className="megaGroup" key={group.title}>
+                    <span className="megaGroupTitle">{group.title}</span>
+                    <div className="megaGroupLinks">
+                      {group.items.map((subItem) => (
+                        <a href={subItem.href} key={subItem.title} className="megaLink">
+                          <span>
+                            <strong>{subItem.title}</strong>
+                            <small>{subItem.subtitle}</small>
+                          </span>
+                          <i aria-hidden="true">↘</i>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <MegaVisual visual={item.visual} />
+            </div>
+          ))}
+        </div>
+
         <div className="mobileMenu" id="mobile-navigation" aria-hidden={!open}>
           <nav aria-label="Navigation mobile">
             {navItems.map((item, index) => (
               <a key={item.href} href={item.href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
                 <span>0{index + 1}</span>
                 <strong>{item.label}</strong>
-                <small>{item.items[0][1]}</small>
+                <small>{item.intro}</small>
                 <i aria-hidden="true">↘</i>
               </a>
             ))}
+
             <Link href="/demande-de-devis" className="mobileMenuCta" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
               Parler de votre projet <span>↗</span>
             </Link>
