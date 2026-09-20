@@ -59,7 +59,7 @@ const navItems: NavItem[] = [
   {
     label: "Expertises",
     href: "#expertises",
-    intro: "Stratégie, design, technologie et search réunis autour du même objectif : faire avancer le business.",
+    intro: "Stratégie, design, technologie et visibilité réunis autour du même objectif : faire avancer le business.",
     groups: [
       {
         title: "Sites web",
@@ -130,7 +130,7 @@ const navItems: NavItem[] = [
         title: "WebCrew",
         items: [
           { title: "Notre manière de penser", subtitle: "Business avant design", href: "#apropos" },
-          { title: "Méthode", subtitle: "Business → Strategy → Build → Improve", href: "#methodologie" },
+          { title: "Méthode", subtitle: "Comprendre → cadrer → construire → améliorer", href: "#methodologie" },
           { title: "Partenaires", subtitle: "Apport d’affaires & collaborations", href: "#partenaires" },
         ],
       },
