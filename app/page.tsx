@@ -8,6 +8,7 @@ import { ScrollAtmosphere } from "@/components/ScrollAtmosphere";
 export default function Page() {
   return (
     <>
+      <ScrollAtmosphere />
       <Header />
       <main id="main-content">
         <Hero />
