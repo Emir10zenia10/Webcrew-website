@@ -265,7 +265,7 @@ export function Header() {
                 onMouseEnter={() => openMenu(item.label)}
                 onFocus={() => openMenu(item.label)}
               >
-                <a href={item.href} aria-expanded={activeMenu === item.label}>
+                <a href={item.href} aria-expanded={activeMenu === item.label} onClick={() => setActiveMenu(null)}>
                   {item.label}
                   <span className="navChevron" aria-hidden="true">⌄</span>
                 </a>
@@ -306,7 +306,7 @@ export function Header() {
               <div className="megaMenuIntro">
                 <span>{item.label}</span>
                 <p>{item.intro}</p>
-                <a href={item.href}>Tout voir <i aria-hidden="true">↗</i></a>
+                <a href={item.href} onClick={() => setActiveMenu(null)}>Tout voir <i aria-hidden="true">↗</i></a>
               </div>
 
               <div className="megaMenuGroups">
@@ -315,7 +315,7 @@ export function Header() {
                     <span className="megaGroupTitle">{group.title}</span>
                     <div className="megaGroupLinks">
                       {group.items.map((subItem) => (
-                        <a href={subItem.href} key={subItem.title} className="megaLink">
+                        <a href={subItem.href} key={subItem.title} className="megaLink" onClick={() => setActiveMenu(null)}>
                           <span>
                             <strong>{subItem.title}</strong>
                             <small>{subItem.subtitle}</small>
