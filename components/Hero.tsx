@@ -44,7 +44,7 @@ export function Hero() {
   };
 
   return (
-    <section className="hero" ref={heroRef} data-atmosphere="ivory" aria-labelledby="hero-title">
+    <section className="hero" ref={heroRef} aria-labelledby="hero-title">
       <div className="heroInner">
         <motion.div
           className="heroCopy"
