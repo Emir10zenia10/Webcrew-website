@@ -52,7 +52,7 @@ const navItems: NavItem[] = [
     visual: {
       eyebrow: "PROJET MIS EN AVANT",
       title: "Cleany",
-      meta: "Refonte B2B · Framer · Search",
+      meta: "Refonte B2B · Framer · SEO",
       variant: "work",
     },
   },
@@ -78,18 +78,18 @@ const navItems: NavItem[] = [
         ],
       },
       {
-        title: "Search & Creative Tech",
+        title: "Visibilité & expérience",
         items: [
           { title: "SEO / GEO", subtitle: "Architecture, contenu, migration", href: "#expertises" },
           { title: "Motion & 3D", subtitle: "Interactions quand elles servent le message", href: "#expertises" },
-          { title: "AI & Custom", subtitle: "Automatisation et expériences sur mesure", href: "#expertises" },
+          { title: "Automatisation & IA", subtitle: "Usages utiles et développement sur mesure", href: "#expertises" },
         ],
       },
     ],
     visual: {
       eyebrow: "NOTRE TERRAIN DE JEU",
-      title: "Strategy × Design × Build",
-      meta: "Framer · Shopify · Search · Creative Tech",
+      title: "Stratégie × Design × Technologie",
+      meta: "Framer · Shopify · SEO/GEO · Motion",
       variant: "services",
     },
   },
