@@ -119,9 +119,20 @@ export function Hero() {
           <div className="sceneStamp" aria-hidden="true"><span>DES IDÉES</span><i>×</i><span>DES RÉSULTATS</span></div>
         </motion.div>
       </div>
-      <div className="heroProof" aria-label="Références sélectionnées et preuve Shopify">
-        <div className="proofIntro">RÉFÉRENCES SÉLECTIONNÉES</div>
-        <div className="proofNames"><span>Cleany</span><span>Acier Shop</span><span>Mademoiselle Parisienne</span></div>
+      <div className="heroProof" aria-label="Références et preuve Shopify">
+        <div className="logoMarquee" aria-label="Références WebCrew">
+          <div className="logoTrack">
+            {[0, 1].map((loop) => (
+              <div className="logoGroup" aria-hidden={loop === 1} key={loop}>
+                <img src="https://framerusercontent.com/images/BnxIDn5UlnIJLUIog8Z9jk0gzPU.png?height=752&width=1025" alt={loop === 0 ? "Référence WebCrew" : ""} />
+                <img src="https://framerusercontent.com/images/JDMQF5IJHPhCi6iYMj9XZB2K9J8.png?height=752&width=1025" alt={loop === 0 ? "Référence WebCrew" : ""} />
+                <img src="https://framerusercontent.com/images/jlL3Z5CzcxB9xKKXSd4Eg21JvJI.png?height=752&width=1025" alt={loop === 0 ? "Référence WebCrew" : ""} />
+                <img src="https://framerusercontent.com/images/y5kwXvlGFRDCwP9G5tenlhYzjsg.png?height=752&width=1025" alt={loop === 0 ? "Référence WebCrew" : ""} />
+                <img src="https://framerusercontent.com/images/iwkFDGawZ0AVuj3Ae8Nr1ukfYuw.png?height=770&width=1050" alt={loop === 0 ? "Référence WebCrew" : ""} />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="shopifyProof"><strong>+2 M€</strong><span>de chiffre d’affaires cumulés sur les boutiques Shopify accompagnées*</span><small className="proofFootnote">* Périmètre et période à documenter avant mise en production.</small></div>
       </div>
       <a className="heroScrollCue" href="#approche" aria-label="Découvrir le Digital Perception Gap"><span /></a>
