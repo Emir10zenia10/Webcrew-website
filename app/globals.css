@@ -98,3 +98,33 @@ body{font-family:var(--font-sans),"Helvetica Neue",Arial,sans-serif}
   .gapHeading h2{font-size:45px;line-height:1}.gapCopy{font-size:15px}.logoGroup{gap:28px;padding-right:28px}.logoGroup img{height:25px;max-width:96px}.heroProof{gap:18px}
 }
 @media(prefers-reduced-motion:reduce){.logoTrack{animation:none}}
+
+/* Alignment pass — one grid for the whole homepage */
+:root{--max:1280px;--container:1280px;--page-gutter:48px}
+.siteHeaderInner{width:min(calc(100% - (var(--page-gutter) * 2)),var(--container))}
+.hero{padding-left:0;padding-right:0}
+.heroInner,.heroProof{width:min(calc(100% - (var(--page-gutter) * 2)),var(--container));margin-left:auto;margin-right:auto}
+.heroInner{column-gap:56px}
+.heroScene{margin-right:0}
+.gapStage{width:100%;max-width:none}
+.sectionHead{grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:64px}
+.gapGrid{grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:64px}
+.workSection,.situationSection,.methodSection,.insightsSection,.founderSection,.autonomySection,.technologySection,.partnerSection,.featuredCaseSection,.siteFooter{padding-left:max(var(--page-gutter),calc((100vw - var(--container))/2));padding-right:max(var(--page-gutter),calc((100vw - var(--container))/2))}
+.workGrid,.situationGrid,.outcomeGrid,.methodGrid,.insightsGrid,.footerLinks{width:100%}
+.featuredCaseShell{width:100%}
+.gapHeading h2{margin-top:0;max-width:860px}
+.gapCopy{padding-top:4px}
+@media(max-width:1180px){
+  :root{--page-gutter:32px}
+  .siteHeaderInner,.heroInner,.heroProof{width:calc(100% - (var(--page-gutter) * 2))}
+  .hero{padding-left:0;padding-right:0}
+  .heroInner{column-gap:0}
+  .gapGrid,.sectionHead{gap:28px}
+}
+@media(max-width:760px){
+  :root{--page-gutter:20px}
+  .siteHeaderInner,.heroInner,.heroProof{width:calc(100% - (var(--page-gutter) * 2))}
+  .hero{padding-left:0;padding-right:0}
+  .workSection,.situationSection,.methodSection,.insightsSection,.founderSection,.autonomySection,.technologySection,.partnerSection,.featuredCaseSection,.siteFooter{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+  .gapGrid,.sectionHead{gap:18px}
+}
