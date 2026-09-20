@@ -243,3 +243,19 @@ body{background:#f5f3ee}
 @media(prefers-reduced-motion:reduce){
   .atmosphereBase,.atmosphereGlow{transition:none}
 }
+
+/* Atmosphere trigger hardening */
+.atmosphereBase{transition-duration:620ms}
+.atmosphereGlow{transition-duration:720ms}
+html[data-atmosphere="forest"] .siteHeader.headerScrolled,
+html[data-atmosphere="ink"] .siteHeader.headerScrolled,
+html[data-atmosphere="night"] .siteHeader.headerScrolled{background:#101a11e8;color:#fff;border-bottom-color:#ffffff1f;box-shadow:0 10px 35px #00000018}
+html[data-atmosphere="forest"] .siteHeader.headerScrolled .brandDot,
+html[data-atmosphere="ink"] .siteHeader.headerScrolled .brandDot,
+html[data-atmosphere="night"] .siteHeader.headerScrolled .brandDot{background:var(--green)}
+html[data-atmosphere="forest"] .siteHeader.headerScrolled .mainNav a:after,
+html[data-atmosphere="ink"] .siteHeader.headerScrolled .mainNav a:after,
+html[data-atmosphere="night"] .siteHeader.headerScrolled .mainNav a:after{background:#fff}
+html[data-atmosphere="forest"] .siteHeader.headerScrolled .pillCta,
+html[data-atmosphere="ink"] .siteHeader.headerScrolled .pillCta,
+html[data-atmosphere="night"] .siteHeader.headerScrolled .pillCta{background:#fff;color:#142116}
