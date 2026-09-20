@@ -152,3 +152,9 @@ body{font-family:var(--font-sans),"Helvetica Neue",Arial,sans-serif}
 @media(max-width:1180px){.methodIntro{grid-template-columns:1fr}.methodIntro h2,.methodIntro p{grid-column:auto}.depthMesh{right:2%;width:92%}}
 @media(max-width:760px){.depthMesh{display:none}}
 @media(prefers-reduced-motion:reduce){.depthMesh path{animation:none}}
+
+/* Premium interaction pass */
+.siteHeader.headerAtTop{background:transparent;border-bottom-color:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}.siteHeader.headerScrolled{background:#f5f3eee9;border-bottom-color:#d9d7cf8c;box-shadow:0 10px 35px #1c271b08;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.methodGrid>div{position:relative;overflow:hidden}.methodGrid>div:after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--green-dark);transition:right .6s cubic-bezier(.22,1,.36,1)}.methodGrid>div:hover:after{right:0}.methodGrid article{transition:transform .45s cubic-bezier(.22,1,.36,1)}.methodGrid>div:hover article{transform:translateY(-4px)}
+.technologyList>div{position:relative}.technologyList>div:before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--green);transform:scaleY(0);transform-origin:top;transition:transform .4s cubic-bezier(.22,1,.36,1)}.technologyList>div:hover:before{transform:scaleY(1)}
+@media(prefers-reduced-motion:reduce){.methodGrid article{transition:none}.methodGrid>div:after,.technologyList>div:before{transition:none}}
