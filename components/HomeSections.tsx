@@ -18,7 +18,7 @@ const method = [
 const technology = [
   ["Framer", "Sites marketing rapides, premium et simples à faire vivre."],
   ["Shopify", "Commerce, catalogue, conversion et autonomie des équipes."],
-  ["Search", "SEO, structure, migration et visibilité pensée dès la conception."],
+  ["SEO / visibilité", "Structure, migration et visibilité pensées dès la conception."],
   ["Automatisation & IA", "Accélérer certaines tâches et enrichir les usages quand cela apporte une vraie valeur."],
   ["Développement créatif", "Interactions, composants et expériences sur mesure quand le besoin le justifie."],
 ] as const;
@@ -208,7 +208,7 @@ export function HomeSections() {
             </div>
             <div className="caseSystemCard">
               <span>SYSTÈME</span>
-              <b>Contenu → UX → Search → CMS</b>
+              <b>Contenu → UX → SEO → CMS</b>
             </div>
           </div>
         </Reveal>
@@ -307,7 +307,7 @@ export function HomeSections() {
           {[
             ["STRATÉGIE","Quand le site ne reflète plus l’entreprise","Pourquoi certaines entreprises sont meilleures que l’image qu’elles projettent — et comment réduire cet écart."],
             ["TECHNOLOGIE","Framer, Shopify ou custom ?","Choisir le système qui sert le modèle économique, les équipes et le niveau d’ambition."],
-            ["SEARCH","Refondre sans sacrifier le SEO","Préserver ce qui fonctionne, migrer proprement et reconstruire les fondations qui limitent la visibilité."],
+            ["SEO","Refondre sans sacrifier le SEO","Préserver ce qui fonctionne, migrer proprement et reconstruire les fondations qui limitent la visibilité."],
           ].map(([kicker,title,copy], index)=>(
             <Reveal key={title} delay={index * 0.06}>
               <article><span>{kicker}</span><h3>{title}</h3><p>{copy}</p><b>En préparation</b></article>
