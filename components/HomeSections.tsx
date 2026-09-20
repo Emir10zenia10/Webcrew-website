@@ -75,7 +75,7 @@ export function HomeSections() {
       <section className="workSection" id="realisations" aria-labelledby="work-title">
         <Reveal className="sectionHead">
           <div>
-            <div className="eyebrow">RÉALISATIONS SÉLECTIONNÉES</div>
+            
             <h2 id="work-title">Des sites pensés pour<br />la réalité du business.</h2>
           </div>
           <p>Nous ne cherchons pas à faire “un beau site de plus”. Le travail consiste à rendre l’entreprise plus claire, plus crédible et plus simple à faire vivre.</p>
@@ -115,10 +115,10 @@ export function HomeSections() {
       </section>
 
       <section className="situationSection" id="expertises" aria-labelledby="expertises-title">
-        <div className="sectionBridge"><span>LE BON SYSTÈME POUR LE BON PROBLÈME</span></div>
+        <div className="sectionBridge"><span>Deux contextes, une même exigence : faire suivre le digital au rythme de l’entreprise.</span></div>
         <Reveal className="sectionHead sectionHeadTight">
           <div>
-            <div className="eyebrow">DEUX SITUATIONS D’ACHAT</div>
+            
             <h2 id="expertises-title">Votre activité avance.<br />Votre digital doit suivre.</h2>
           </div>
         </Reveal>
@@ -152,7 +152,7 @@ export function HomeSections() {
         </div>
 
         <Reveal className="outcomesIntro">
-          <div className="eyebrow">CE QUI DOIT CHANGER APRÈS UNE REFONTE</div>
+          
           <p>Pas seulement l’apparence. La perception du marché, la visibilité, la capacité à convertir et la manière dont vos équipes utilisent le site au quotidien.</p>
         </Reveal>
 
@@ -202,7 +202,7 @@ export function HomeSections() {
       <section className="methodSection" id="methodologie" aria-labelledby="method-title">
         <Reveal className="sectionHead">
           <div>
-            <div className="eyebrow">MÉTHODE</div>
+            
             <h2 id="method-title">Le design arrive<br />après les bonnes questions.</h2>
           </div>
           <p>Nous avançons du business vers le système digital — pas l’inverse. C’est ce qui évite les refontes esthétiques qui vieillissent vite ou ne changent rien commercialement.</p>
@@ -224,7 +224,7 @@ export function HomeSections() {
 
       <section className="technologySection" aria-labelledby="technology-title">
         <Reveal className="technologyIntro">
-          <div className="eyebrow eyebrowLight">TECHNOLOGIE / DELIVERY</div>
+          
           <h2 id="technology-title">La technologie vient<br />après le besoin.</h2>
           <p>Framer, Shopify, Search, IA ou développement custom : nous choisissons la couche qui rend le système plus performant, plus maintenable et plus simple pour les équipes.</p>
         </Reveal>
@@ -245,7 +245,7 @@ export function HomeSections() {
 
       <section className="autonomySection" aria-labelledby="autonomy-title">
         <Reveal className="autonomyIntro">
-          <div className="eyebrow">AUTONOMIE</div>
+          
           <h2 id="autonomy-title">Votre équipe garde la main.</h2>
           <p>Un bon système ne doit pas transformer chaque changement de texte, d’offre ou de contenu en ticket développeur. Nous construisons les interfaces et les modèles pour que les évolutions courantes restent simples — tout en gardant WebCrew disponible pour les évolutions complexes.</p>
         </Reveal>
@@ -271,7 +271,7 @@ export function HomeSections() {
         </Reveal>
 
         <Reveal className="founderCopy" delay={0.08}>
-          <div className="eyebrow">NOTRE MANIÈRE DE PENSER</div>
+          
           <h2 id="founder-title">Un bon site commence bien avant le design.</h2>
           <p>Avant de parler couleurs, composants ou animations, il faut comprendre pourquoi le site n’est plus au niveau de l’entreprise. C’est cette lecture qui guide ensuite la stratégie, la structure, la création et la technologie.</p>
           <Link href="/demande-de-devis">Parler de votre projet <span>↗</span></Link>
@@ -281,7 +281,7 @@ export function HomeSections() {
       <section className="insightsSection" id="insights" aria-labelledby="insights-title">
         <Reveal className="sectionHead">
           <div>
-            <div className="eyebrow">INSIGHTS</div>
+            
             <h2 id="insights-title">Comprendre avant<br />de construire.</h2>
           </div>
           <p>Des contenus pour expliquer les décisions derrière une refonte, une migration ou un système digital plus performant.</p>
@@ -303,7 +303,7 @@ export function HomeSections() {
       <Reveal>
         <section className="partnerSection" id="partenaires" aria-label="Système d’apport d’affaires">
           <div>
-            <div className="eyebrow">PARTENAIRES</div>
+            
             <h2>Vous faites l’introduction.<br />Nous prenons la suite.</h2>
           </div>
           <div className="partnerAction">
@@ -316,7 +316,7 @@ export function HomeSections() {
       <Reveal>
         <section className="finalCtaSection" aria-labelledby="final-cta-title">
           <div className="finalCtaGlow" />
-          <div className="eyebrow eyebrowLight">PROCHAINE ÉTAPE</div>
+          
           <h2 id="final-cta-title">Votre site est-il encore<br />au niveau de votre entreprise ?</h2>
           <p>Si la réponse n’est pas évidente, c’est probablement un bon sujet de conversation.</p>
           <Link href="/demande-de-devis" className="finalCtaButton"><span>Parler de votre projet</span><span>↗</span></Link>
