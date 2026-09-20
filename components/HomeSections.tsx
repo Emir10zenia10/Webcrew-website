@@ -142,7 +142,10 @@ export function HomeSections() {
                 <h3>Votre commerce a dépassé son expérience actuelle.</h3>
                 <p>Migration, catalogue, expérience produit, conversion, opérations et autonomie : Shopify devient un système de commerce, pas seulement une vitrine.</p>
               </div>
-              <div className="commerceProofMini"><strong>+2 M€</strong><span>de CA cumulés sur les boutiques Shopify accompagnées*</span></div>
+              <div className="commerceProofMini">
+                <div className="commerceProofCopy"><strong>+2 M€</strong><span>de CA cumulés sur les boutiques Shopify accompagnées*</span></div>
+                <div className="commerceProofScreen" aria-label="Emplacement pour une capture de preuve Shopify"><span>CAPTURE SHOPIFY À INTÉGRER</span><i /><i /><i /><i /></div>
+              </div>
               <Link href="/demande-de-devis">Parler du projet <span>↗</span></Link>
             </article>
           </Reveal>
