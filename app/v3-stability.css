@@ -1,0 +1,228 @@
+/* WebCrew V3 — canonical geometry layer
+   This file intentionally owns only critical layout geometry.
+   It is imported after globals.css so iterative legacy rules cannot drift the grid. */
+
+:root {
+  --max: 1280px;
+  --container: 1280px;
+  --page-gutter: 48px;
+}
+
+.siteHeader {
+  width: 100%;
+}
+
+.siteHeaderInner,
+.heroInner,
+.heroProof {
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--container));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.siteHeaderInner {
+  height: 82px;
+}
+
+.hero {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.heroInner {
+  grid-template-columns: minmax(500px, .82fr) minmax(680px, 1.18fr);
+  column-gap: 56px;
+  min-height: 610px;
+}
+
+.heroScene {
+  height: 620px;
+  margin-right: -30px;
+  perspective: 1150px;
+}
+
+.gapSection,
+.workSection,
+.situationSection,
+.featuredCaseSection,
+.methodSection,
+.technologySection,
+.autonomySection,
+.founderSection,
+.insightsSection,
+.partnerSection,
+.siteFooter {
+  padding-left: max(var(--page-gutter), calc((100vw - var(--container)) / 2));
+  padding-right: max(var(--page-gutter), calc((100vw - var(--container)) / 2));
+}
+
+.gapGrid,
+.workGrid,
+.situationGrid,
+.outcomeGrid,
+.methodGrid,
+.insightsGrid,
+.featuredCaseShell,
+.footerLinks {
+  width: 100%;
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gapGrid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  gap: 64px;
+}
+
+.sectionHead {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 64px;
+}
+
+.methodIntro {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: end;
+}
+
+.methodIntro h2 {
+  grid-column: 1 / 4;
+}
+
+.methodIntro p {
+  grid-column: 4 / 5;
+  max-width: none;
+}
+
+.methodGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.megaMenuShell {
+  width: min(calc(100vw - 64px), 1240px);
+}
+
+@media (max-width: 1260px) {
+  .megaMenuShell {
+    width: calc(100vw - 48px);
+  }
+}
+
+@media (max-width: 1180px) {
+  :root {
+    --page-gutter: 32px;
+  }
+
+  .siteHeaderInner,
+  .heroInner,
+  .heroProof {
+    width: calc(100% - (var(--page-gutter) * 2));
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    min-height: auto;
+  }
+
+  .heroScene {
+    width: min(100%, 900px);
+    height: 590px;
+    margin: 18px auto 0;
+  }
+
+  .gapSection,
+  .workSection,
+  .situationSection,
+  .featuredCaseSection,
+  .methodSection,
+  .technologySection,
+  .autonomySection,
+  .founderSection,
+  .insightsSection,
+  .partnerSection,
+  .siteFooter {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .gapGrid,
+  .sectionHead,
+  .methodIntro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .methodIntro h2,
+  .methodIntro p {
+    grid-column: auto;
+  }
+
+  .megaMenuShell {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --page-gutter: 20px;
+  }
+
+  .siteHeaderInner,
+  .heroInner,
+  .heroProof {
+    width: calc(100% - (var(--page-gutter) * 2));
+  }
+
+  .siteHeaderInner {
+    height: 68px;
+  }
+
+  .heroScene {
+    width: 100%;
+    height: 420px;
+    margin-top: 16px;
+  }
+
+  .gapSection,
+  .workSection,
+  .situationSection,
+  .featuredCaseSection,
+  .methodSection,
+  .technologySection,
+  .autonomySection,
+  .founderSection,
+  .insightsSection,
+  .partnerSection,
+  .siteFooter {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .gapGrid,
+  .sectionHead,
+  .methodIntro {
+    gap: 18px;
+  }
+
+  .methodGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Canonical vertical rhythm */
+.workSection{padding-top:124px;padding-bottom:126px}
+.situationSection{padding-top:124px;padding-bottom:132px}
+.featuredCaseSection{padding-top:112px;padding-bottom:126px}
+.methodSection{padding-top:126px;padding-bottom:126px}
+.technologySection{padding-top:126px;padding-bottom:126px}
+.autonomySection{padding-top:126px;padding-bottom:126px}
+.founderSection{padding-top:126px;padding-bottom:126px}
+.insightsSection{padding-top:126px;padding-bottom:126px}
+.partnerSection{padding-top:96px;padding-bottom:96px}
+@media(max-width:760px){
+  .workSection,.situationSection,.featuredCaseSection,.methodSection,.technologySection,.autonomySection,.founderSection,.insightsSection{padding-top:86px;padding-bottom:90px}
+  .partnerSection{padding-top:72px;padding-bottom:72px}
+}
