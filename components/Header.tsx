@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   ["Réalisations", "#realisations"],
@@ -13,8 +13,18 @@ const navItems = [
 export function Header() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
-    <header className={`siteHeader ${open ? "menuOpen" : ""}`}>
+    <>
+      <a className="skipLink" href="#main-content">Aller au contenu</a>
+      <header className={`siteHeader ${open ? "menuOpen" : ""}`}>
       <div className="siteHeaderInner">
         <Link href="/" className="brandLockup" aria-label="WebCrew — accueil" onClick={() => setOpen(false)}>
           <span className="brandWord">WebCrew</span>
@@ -46,17 +56,18 @@ export function Header() {
       <div className="mobileMenu" id="mobile-navigation" aria-hidden={!open}>
         <nav aria-label="Navigation mobile">
           {navItems.map(([label, href], index) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
+            <a key={href} href={href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
               <span>0{index + 1}</span>
               <strong>{label}</strong>
               <i aria-hidden="true">↘</i>
             </a>
           ))}
-          <Link href="/demande-de-devis" className="mobileMenuCta" onClick={() => setOpen(false)}>
+          <Link href="/demande-de-devis" className="mobileMenuCta" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
             Parler de votre projet <span>↗</span>
           </Link>
         </nav>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
