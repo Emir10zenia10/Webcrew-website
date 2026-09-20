@@ -17,8 +17,7 @@ export function PerceptionGap() {
       <div className="gapTopMark"><span /></div>
       <div className="gapGrid">
         <div className="gapHeading">
-          <div className="eyebrow">LE DIGITAL PERCEPTION GAP</div>
-          <h2 id="gap-title">Une entreprise peut être<br /><em>meilleure</em> que ce qu’elle<br />laisse paraître en ligne.</h2>
+          <h2 id="gap-title">Votre entreprise est peut-être <em>meilleure</em> que l’image qu’elle renvoie en ligne.</h2>
         </div>
         <div className="gapCopy">
           <p>Votre entreprise a grandi. Votre offre, votre équipe et la confiance de vos clients aussi. Pourtant, votre site peut encore raconter une version plus petite, plus ancienne ou moins convaincante de votre réalité.</p>
