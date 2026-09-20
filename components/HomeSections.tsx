@@ -47,11 +47,11 @@ function AcierWorkVisual() {
     <div className="workMock acierMock">
       <div className="mockCommerceTop"><span>ACIER SHOP</span><i>Panier</i></div>
       <div className="acierMockGrid">
-        <div className="acierProduct acierProductMain"><span>PHOTO PRODUIT</span></div>
-        <div className="acierProduct"><span>COLLECTION</span></div>
+        <div className="acierProduct acierProductMain"><span>VERRIÈRES</span></div>
+        <div className="acierProduct"><span>ESCALIERS</span></div>
         <div className="acierProduct"><span>SUR-MESURE</span></div>
       </div>
-      <em>VRAIES CAPTURES À INTÉGRER</em>
+      <em>ACIER · FABRICATION · SUR-MESURE</em>
     </div>
   );
 }
@@ -159,7 +159,7 @@ export function HomeSections() {
               </div>
               <div className="commerceProofMini">
                 <div className="commerceProofCopy"><strong>+2 M€</strong><span>de CA cumulés sur les boutiques Shopify accompagnées*</span></div>
-                <div className="commerceProofScreen" aria-label="Emplacement pour une capture de preuve Shopify"><span>CAPTURE SHOPIFY À INTÉGRER</span><i /><i /><i /><i /></div>
+                <div className="commerceProofScreen commerceProofEvidence" aria-label="Repère visuel de performance Shopify"><span>SHOPIFY</span><strong>+2 M€</strong><small>CA cumulé des boutiques accompagnées*</small><i /><i /><i /><i /></div>
               </div>
               <Link href="/demande-de-devis">Parler du projet <span>↗</span></Link>
             </article>
@@ -276,9 +276,13 @@ export function HomeSections() {
       <section className="founderSection" id="apropos" aria-labelledby="founder-title">
         <Reveal className="founderMedia">
           <div className="founderMediaTop"><span>FOUNDER / POINT OF VIEW</span><span>À VENIR</span></div>
-          <div className="founderVideoPlaceholder">
-            <div className="founderPlayPlaceholder" aria-hidden="true"><span>▶</span></div>
-            <p>VIDÉO FONDATEUR À INTÉGRER</p>
+          <div className="founderVideoPlaceholder founderPointOfView">
+            <div className="founderMonogram" aria-hidden="true"><span>W</span><i /></div>
+            <div className="founderPointCopy">
+              <span>POINT DE VUE</span>
+              <strong>Comprendre avant de dessiner.</strong>
+              <p>Business · positionnement · expérience · technologie</p>
+            </div>
           </div>
         </Reveal>
 
