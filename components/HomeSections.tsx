@@ -61,10 +61,10 @@ function MpWorkVisual() {
     <div className="workMock mpMock">
       <div className="mpEditorial">
         <span>MADEMOISELLE PARISIENNE</span>
-        <strong>Shopify<br />& identité de marque.</strong>
-        <small>PROJECTION VISUELLE — ASSET RÉEL À INTÉGRER</small>
+        <strong>Nouvelle<br />collection.</strong>
+        <small>VÊTEMENTS · CHAUSSURES · ACCESSOIRES</small>
       </div>
-      <div className="mpPhoto"><span>VISUEL E-COMMERCE À INTÉGRER</span></div>
+      <div className="mpPhoto"><span>EXPÉRIENCE E-COMMERCE</span></div>
     </div>
   );
 }
@@ -87,26 +87,41 @@ export function HomeSections() {
               <div className="workVisual cleanyVisual">
                 <div className="workVisualChrome"><span>01</span><span>B2B / FRAMER / SEO</span></div>
                 <CleanyWorkVisual />
+                <div className="workCaseCaption">
+                  <span>Cleany</span>
+                  <strong>Clarifier une offre devenue plus riche sans perdre en simplicité.</strong>
+                  <i aria-hidden="true">↗</i>
+                </div>
               </div>
               <div className="workMeta"><span>Cleany</span><b>Refonte B2B · Framer · SEO</b></div>
             </article>
           </Reveal>
 
-          <Reveal className="workCard" delay={0.08}>
+          <Reveal className="workCard workCardCompact" delay={0.08}>
             <article>
               <div className="workVisual acierVisual">
                 <div className="workVisualChrome"><span>02</span><span>SHOPIFY / COMMERCE</span></div>
                 <AcierWorkVisual />
+                <div className="workCaseCaption workCaseCaptionCompact">
+                  <span>Acier Shop</span>
+                  <strong>Verrières · mobilier métal · sur-mesure</strong>
+                  <i aria-hidden="true">↗</i>
+                </div>
               </div>
               <div className="workMeta"><span>Acier Shop</span><b>Shopify · Industrie · Commerce</b></div>
             </article>
           </Reveal>
 
-          <Reveal className="workCard" delay={0.14}>
+          <Reveal className="workCard workCardCompact" delay={0.14}>
             <article>
               <div className="workVisual mpVisual">
                 <div className="workVisualChrome"><span>03</span><span>SHOPIFY / BRAND</span></div>
                 <MpWorkVisual />
+                <div className="workCaseCaption workCaseCaptionCompact">
+                  <span>Mademoiselle Parisienne</span>
+                  <strong>Vêtements · chaussures · accessoires</strong>
+                  <i aria-hidden="true">↗</i>
+                </div>
               </div>
               <div className="workMeta"><span>Mademoiselle Parisienne</span><b>Shopify · Brand · E-commerce</b></div>
             </article>
