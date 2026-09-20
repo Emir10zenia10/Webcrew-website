@@ -182,3 +182,64 @@ body{font-family:var(--font-sans),"Helvetica Neue",Arial,sans-serif}
 @media(max-width:1180px){.heroInner{grid-template-columns:1fr}.heroScene{width:min(100%,900px);height:590px;margin-left:auto;margin-right:auto}.heroOrbWrap{right:6%}.rearMediaC{left:22%}}
 @media(max-width:760px){.heroScene{height:420px}.mainDevice{left:17%;top:19%;width:80%;height:65%;border-width:5px;transform:translateZ(70px) rotateY(-5deg) rotateZ(-1deg)}.mobilePreview{left:1%;width:20%}.heroOrbWrap{width:110px;height:110px;right:0;top:1%;opacity:.85}.heroOrbCore{inset:27px}.heroOrbRingA{width:100px;height:46px;margin:-23px 0 0 -50px}.heroOrbRingB{width:88px;height:88px;margin:-44px 0 0 -44px}.heroOrbRingC{width:72px;height:72px;margin:-36px 0 0 -36px}.rearMediaC{display:none}.rearMediaA{right:2%;top:12%;width:37%;height:37%}}
 @media(prefers-reduced-motion:reduce){.heroOrb{animation:none}}
+
+/* Immersive scroll atmosphere — page-wide color transitions, not colored section blocks */
+body{background:#f5f3ee}
+#main-content,.siteFooter{position:relative;z-index:1}
+.scrollAtmosphere{position:fixed;z-index:0;inset:0;overflow:hidden;pointer-events:none;isolation:isolate;--atmo:#f5f3ee;--glow-a:#ffffff;--glow-b:#dcebd8;--grain:.035;color-scheme:light}
+.atmosphereBase{position:absolute;inset:-4%;background:var(--atmo);transition:background 760ms cubic-bezier(.22,1,.36,1)}
+.atmosphereGlow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;transition:background 760ms cubic-bezier(.22,1,.36,1),opacity 760ms cubic-bezier(.22,1,.36,1),transform 900ms cubic-bezier(.22,1,.36,1)}
+.atmosphereGlowA{width:52vw;height:52vw;right:-16vw;top:-18vw;background:var(--glow-a)}
+.atmosphereGlowB{width:46vw;height:46vw;left:-18vw;bottom:-20vw;background:var(--glow-b)}
+.atmosphereGrain{position:absolute;inset:0;opacity:var(--grain);mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E")}
+.atmosphere-ivory{--atmo:#f5f3ee;--glow-a:#ffffff;--glow-b:#dcebd8;--grain:.025;color-scheme:light}
+.atmosphere-paper{--atmo:#fbfaf6;--glow-a:#eff8eb;--glow-b:#ffffff;--grain:.018;color-scheme:light}
+.atmosphere-forest{--atmo:#173c1b;--glow-a:#2e6b35;--glow-b:#0b2510;--grain:.055;color-scheme:dark}
+.atmosphere-forest .atmosphereGlowA{transform:translate(-5vw,8vh) scale(1.06);opacity:.58}
+.atmosphere-forest .atmosphereGlowB{transform:translate(8vw,-7vh) scale(.9);opacity:.48}
+.atmosphere-ink{--atmo:#0c140d;--glow-a:#173c1b;--glow-b:#071009;--grain:.07;color-scheme:dark}
+.atmosphere-ink .atmosphereGlowA{transform:translate(-12vw,18vh) scale(1.18);opacity:.5}
+.atmosphere-ink .atmosphereGlowB{transform:translate(12vw,-5vh) scale(1.1);opacity:.35}
+.atmosphere-mint{--atmo:#e2f2df;--glow-a:#f9fff7;--glow-b:#b9e3b4;--grain:.025;color-scheme:light}
+.atmosphere-mint .atmosphereGlowA{transform:translate(-3vw,4vh) scale(.92);opacity:.62}
+.atmosphere-mint .atmosphereGlowB{transform:translate(10vw,-10vh) scale(1.04);opacity:.48}
+.atmosphere-night{--atmo:#0d110c;--glow-a:#173c1b;--glow-b:#081008;--grain:.075;color-scheme:dark}
+.atmosphere-night .atmosphereGlowA{transform:translate(-18vw,6vh) scale(1.3);opacity:.42}
+.atmosphere-night .atmosphereGlowB{transform:translate(18vw,-12vh) scale(1.12);opacity:.3}
+
+/* Let the global atmosphere carry the color. Sections themselves stay transparent. */
+.hero,.gapSection,.workSection,.situationSection,.featuredCaseSection,.methodSection,.technologySection,.autonomySection,.founderSection,.insightsSection,.partnerSection,.finalCtaSection{background:transparent!important}
+.gapSection{border-radius:0}
+.featuredCaseSection{padding-top:118px;padding-bottom:128px}
+.featuredCaseShell{background:transparent;border-radius:0;padding-left:0;padding-right:0;box-shadow:none}
+.technologySection{min-height:760px}
+.autonomySection{background:transparent!important}
+.partnerSection{background:transparent!important}
+.finalCtaSection{background:transparent!important}
+
+/* Dark immersive moments */
+.featuredCaseSection[data-atmosphere="forest"]{color:#fff}
+.featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy>p{color:#c9d7c9}
+.featuredCaseSection[data-atmosphere="forest"] .featuredCaseTags span{border-color:#ffffff2a;color:#dce5dc}
+.featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy>a{border-bottom-color:#ffffff66}
+.technologySection[data-atmosphere="ink"]{color:#fff}
+.technologySection[data-atmosphere="ink"] .technologyIntro p,.technologySection[data-atmosphere="ink"] .technologyList p{color:#aeb7ad}
+.finalCtaSection[data-atmosphere="night"]{color:#fff}
+
+/* Keep the immersive transition readable when two sections share the viewport */
+[data-atmosphere]{position:relative;isolation:isolate}
+[data-atmosphere="forest"] .featuredCaseShell:before,[data-atmosphere="ink"] .technologyIntro:before,[data-atmosphere="night"] .finalCtaGlow:before{content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 42%,#10ef1a12,transparent 62%)}
+
+/* Header inherits the atmosphere instead of looking pasted on top */
+.siteHeader.headerScrolled{background:#f5f3eed8}
+.atmosphere-night~.siteHeader.headerScrolled,.atmosphere-forest~.siteHeader.headerScrolled,.atmosphere-ink~.siteHeader.headerScrolled{background:#111b12d8;color:#fff;border-bottom-color:#ffffff1c}
+.atmosphere-night~.siteHeader.headerScrolled .brandDot,.atmosphere-forest~.siteHeader.headerScrolled .brandDot,.atmosphere-ink~.siteHeader.headerScrolled .brandDot{background:var(--green)}
+.atmosphere-night~.siteHeader.headerScrolled .mainNav a:after,.atmosphere-forest~.siteHeader.headerScrolled .mainNav a:after,.atmosphere-ink~.siteHeader.headerScrolled .mainNav a:after{background:#fff}
+
+@media(max-width:760px){
+  .atmosphereGlow{filter:blur(56px)}
+  .featuredCaseSection{padding-top:86px;padding-bottom:90px}
+}
+@media(prefers-reduced-motion:reduce){
+  .atmosphereBase,.atmosphereGlow{transition:none}
+}
