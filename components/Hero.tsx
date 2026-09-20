@@ -117,7 +117,7 @@ export function Hero() {
       <div className="heroProof" aria-label="Références sélectionnées et preuve Shopify">
         <div className="proofIntro">RÉFÉRENCES SÉLECTIONNÉES</div>
         <div className="proofNames"><span>Cleany</span><span>Acier Shop</span><span>Mademoiselle Parisienne</span></div>
-        <div className="shopifyProof"><strong>+2 M€</strong><span>de chiffre d’affaires cumulés sur les boutiques Shopify accompagnées*</span></div>
+        <div className="shopifyProof"><strong>+2 M€</strong><span>de chiffre d’affaires cumulés sur les boutiques Shopify accompagnées*</span><small className="proofFootnote">* Périmètre et période à documenter avant mise en production.</small></div>
       </div>
     </section>
   );
