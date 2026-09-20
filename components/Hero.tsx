@@ -119,6 +119,7 @@ export function Hero() {
         <div className="proofNames"><span>Cleany</span><span>Acier Shop</span><span>Mademoiselle Parisienne</span></div>
         <div className="shopifyProof"><strong>+2 M€</strong><span>de chiffre d’affaires cumulés sur les boutiques Shopify accompagnées*</span><small className="proofFootnote">* Périmètre et période à documenter avant mise en production.</small></div>
       </div>
+      <a className="heroScrollCue" href="#approche" aria-label="Découvrir le Digital Perception Gap"><span /></a>
     </section>
   );
 }
