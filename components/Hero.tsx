@@ -55,7 +55,7 @@ export function Hero() {
         >
           <motion.div
             className="eyebrow"
-            variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } } }}
+            variants={{ hidden: { y: 10 }, show: { y: 0, transition: { duration: 0.45, ease } } }}
           >
             AGENCE WEB — STRATÉGIE · FRAMER · SHOPIFY
           </motion.div>
