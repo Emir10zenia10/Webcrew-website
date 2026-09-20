@@ -240,11 +240,29 @@ export function HomeSections() {
         </div>
       </section>
 
+      <section className="autonomySection" aria-labelledby="autonomy-title">
+        <Reveal className="autonomyIntro">
+          <div className="eyebrow">AUTONOMIE</div>
+          <h2 id="autonomy-title">Votre équipe garde la main.</h2>
+          <p>Un bon système ne doit pas transformer chaque changement de texte, d’offre ou de contenu en ticket développeur. Nous construisons les interfaces et les modèles pour que les évolutions courantes restent simples — tout en gardant WebCrew disponible pour les évolutions complexes.</p>
+        </Reveal>
+
+        <Reveal className="autonomyBoard" delay={0.08}>
+          <div className="autonomyBoardTop"><span>CE QUE VOS ÉQUIPES PEUVENT FAIRE</span><span>Sans dépendance inutile</span></div>
+          <div className="autonomyRows">
+            <article><span>MARKETING</span><strong>Créer ou mettre à jour des pages de campagne</strong><i>01</i></article>
+            <article><span>COMMUNICATION</span><strong>Publier actualités, cas clients et contenus</strong><i>02</i></article>
+            <article><span>COMMERCE</span><strong>Gérer produits, collections et contenus Shopify</strong><i>03</i></article>
+            <article><span>ÉQUIPE WEBCREW</span><strong>Intervenir sur les évolutions qui demandent du design ou du code</strong><i>04</i></article>
+          </div>
+        </Reveal>
+      </section>
+
       <section className="founderSection" id="apropos" aria-labelledby="founder-title">
         <Reveal className="founderMedia">
           <div className="founderMediaTop"><span>FOUNDER / POINT OF VIEW</span><span>00:58</span></div>
           <div className="founderVideoPlaceholder">
-            <button type="button" aria-label="Vidéo fondateur à intégrer"><span>▶</span></button>
+            <div className="founderPlayPlaceholder" aria-hidden="true"><span>▶</span></div>
             <p>VIDÉO FONDATEUR À INTÉGRER</p>
           </div>
         </Reveal>
