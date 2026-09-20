@@ -259,3 +259,97 @@ html[data-atmosphere="night"] .siteHeader.headerScrolled .mainNav a:after{backgr
 html[data-atmosphere="forest"] .siteHeader.headerScrolled .pillCta,
 html[data-atmosphere="ink"] .siteHeader.headerScrolled .pillCta,
 html[data-atmosphere="night"] .siteHeader.headerScrolled .pillCta{background:#fff;color:#142116}
+
+/* Atmosphere readability + cinematic transitions */
+.atmosphereBase{transition:background 1050ms cubic-bezier(.22,1,.36,1)}
+.atmosphereGlow{transition:background 1150ms cubic-bezier(.22,1,.36,1),opacity 1150ms cubic-bezier(.22,1,.36,1),transform 1400ms cubic-bezier(.22,1,.36,1)}
+
+/* Remove residual local section paints that can mask the global atmosphere */
+.gapSection,.workSection,.situationSection,.featuredCaseSection,.methodSection,.technologySection,.autonomySection,.founderSection,.insightsSection,.partnerSection,.finalCtaSection{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+.featuredCaseShell,.technologyIntro,.autonomyIntro,.partnerSection,.finalCtaSection{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Smooth content color adaptation when the viewport enters a dark atmosphere */
+.featuredCaseCopy h2,
+.featuredCaseCopy p,
+.featuredCaseCopy a,
+.featuredCaseTags span,
+.technologyIntro h2,
+.technologyIntro p,
+.technologyList article,
+.technologyList article span,
+.technologyList article h3,
+.technologyList article p,
+.technologyList article i,
+.finalCtaSection h2,
+.finalCtaSection p,
+.finalCtaButton{
+  transition:color 480ms cubic-bezier(.22,1,.36,1),border-color 480ms cubic-bezier(.22,1,.36,1),background-color 480ms cubic-bezier(.22,1,.36,1);
+}
+
+/* Forest moment: only the active Cleany section changes text theme */
+html[data-atmosphere="forest"] .featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy h2,
+html[data-atmosphere="forest"] .featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy a{
+  color:#fff!important;
+}
+html[data-atmosphere="forest"] .featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy p{
+  color:#d6e1d6!important;
+}
+html[data-atmosphere="forest"] .featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy>.eyebrow{
+  color:#b9c8b9!important;
+}
+html[data-atmosphere="forest"] .featuredCaseSection[data-atmosphere="forest"] .featuredCaseTags span{
+  color:#edf5ed!important;
+  border-color:#ffffff3a!important;
+  background:#ffffff08!important;
+}
+html[data-atmosphere="forest"] .featuredCaseSection[data-atmosphere="forest"] .featuredCaseCopy>a{
+  border-bottom-color:#ffffff70!important;
+}
+
+/* Ink moment: technology becomes light-on-dark without touching its white device/cards */
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyIntro h2,
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyList h3,
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyList i{
+  color:#fff!important;
+}
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyIntro p,
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyList p,
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyList span{
+  color:#b9c5ba!important;
+}
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyList article{
+  border-color:#ffffff1f!important;
+}
+html[data-atmosphere="ink"] .technologySection[data-atmosphere="ink"] .technologyList>div:before{
+  background:var(--green)!important;
+}
+
+/* Final night moment */
+html[data-atmosphere="night"] .finalCtaSection[data-atmosphere="night"] h2,
+html[data-atmosphere="night"] .finalCtaSection[data-atmosphere="night"] p{
+  color:#fff!important;
+}
+html[data-atmosphere="night"] .finalCtaSection[data-atmosphere="night"] .finalCtaButton{
+  background:#fff!important;
+  color:#101510!important;
+}
+
+/* Keep light atmospheres explicitly readable after leaving a dark section */
+html[data-atmosphere="ivory"] [data-atmosphere="ivory"],
+html[data-atmosphere="paper"] [data-atmosphere="paper"],
+html[data-atmosphere="mint"] [data-atmosphere="mint"]{
+  color:var(--ink);
+}
+
+@media(prefers-reduced-motion:reduce){
+  .atmosphereBase,.atmosphereGlow,
+  .featuredCaseCopy h2,.featuredCaseCopy p,.featuredCaseCopy a,.featuredCaseTags span,
+  .technologyIntro h2,.technologyIntro p,.technologyList article,.technologyList article span,.technologyList article h3,.technologyList article p,.technologyList article i,
+  .finalCtaSection h2,.finalCtaSection p,.finalCtaButton{transition:none}
+}
