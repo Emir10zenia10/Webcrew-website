@@ -198,21 +198,13 @@ export function Hero() {
               <div className="projectScreen">
                 <div className="projectLeft">
                   <div className="projectBrand"><span>◉</span> Cleany</div>
-                  <div className="projectHeadline">Propreté.<br />Office Life.<br />Multitechnique.</div>
-                  <div className="projectSub">Projection temporaire de la refonte.<br />Capture réelle à intégrer.</div>
+                  <div className="projectHeadline">La propreté de vos bureaux.<br />Pilotée en toute sérénité.</div>
+                  <div className="projectSub">Interventions tracées · Interlocuteur dédié<br />Entreprise B Corp & éco-certifiée.</div>
                   <div className="projectButton">Découvrir le projet <span>→</span></div>
                 </div>
-                <div className="projectImage" aria-label="Emplacement réservé à une vraie capture Cleany">
-                  <div className="architecturalPlaceholder" aria-hidden="true">
-                    <div className="archSky" />
-                    <div className="archBuilding archBuildingA" />
-                    <div className="archBuilding archBuildingB" />
-                    <div className="archGlass" />
-                    <div className="archGreen archGreenOne" />
-                    <div className="archGreen archGreenTwo" />
-                    <div className="archGround" />
-                  </div>
-                  <span className="realAssetBadge">CAPTURE CLEANY À REMPLACER</span>
+                <div className="projectImage">
+                  <img className="cleanyLiveImage" src="https://framerusercontent.com/images/KtYAHPwJkffUodi86sKuP0eHI.png?height=1086&width=1448" alt="Agente Cleany dans des bureaux lumineux" />
+                  <span className="realAssetBadge">CLEANY.FR — PROJET LIVE</span>
                 </div>
               </div>
             </div>
