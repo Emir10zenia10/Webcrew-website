@@ -145,7 +145,7 @@ export function Hero() {
           </motion.div>
 
           <div className="sceneVerticalLabel sceneVerticalLabelLeft" aria-hidden="true">
-            <span>STRATÉGIE</span><span>BRAND</span><span>EXPÉRIENCE</span><span>TECHNOLOGIE</span><span>SEARCH</span>
+            <span>STRATÉGIE</span><span>MARQUE</span><span>EXPÉRIENCE</span><span>TECHNOLOGIE</span><span>VISIBILITÉ</span>
           </div>
 
           <div className="sceneVerticalLabel sceneVerticalLabelRight" aria-hidden="true">
@@ -210,12 +210,12 @@ export function Hero() {
             </div>
           </motion.div>
 
-          <div className="depthChip depthChipStrategy" aria-hidden="true"><span>01</span><strong>Strategy</strong></div>
-          <div className="depthChip depthChipExperience" aria-hidden="true"><span>02</span><strong>Experience</strong></div>
-          <div className="depthChip depthChipBuild" aria-hidden="true"><span>03</span><strong>Build</strong></div>
+          <div className="depthChip depthChipStrategy" aria-hidden="true"><span>01</span><strong>Stratégie</strong></div>
+          <div className="depthChip depthChipExperience" aria-hidden="true"><span>02</span><strong>Expérience</strong></div>
+          <div className="depthChip depthChipBuild" aria-hidden="true"><span>03</span><strong>Production</strong></div>
 
           <div className="rearMedia rearMediaA">
-            <span>CASE STUDY</span>
+            <span>CAS CLIENT</span>
             <strong>Cleany</strong>
           </div>
           <div className="rearMedia rearMediaB">
@@ -223,14 +223,14 @@ export function Hero() {
             <strong>Shopify</strong>
           </div>
           <div className="rearMedia rearMediaC">
-            <span>SEARCH</span>
+            <span>VISIBILITÉ</span>
             <strong>SEO / GEO</strong>
           </div>
 
           <div className="rearCode" aria-hidden="true">
-            <div><span>01</span><b>strategy</b></div>
-            <div><span>02</span><b>design_system</b></div>
-            <div><span>03</span><b>search_ready</b></div>
+            <div><span>01</span><b>comprendre</b></div>
+            <div><span>02</span><b>concevoir</b></div>
+            <div><span>03</span><b>faire évoluer</b></div>
           </div>
 
           <div className="sceneStamp" aria-hidden="true">
