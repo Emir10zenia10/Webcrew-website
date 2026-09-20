@@ -101,7 +101,7 @@ const navItems: NavItem[] = [
       {
         title: "À lire",
         items: [
-          { title: "Perception digitale", subtitle: "Pourquoi un bon business peut paraître moyen en ligne", href: "#insights" },
+          { title: "Perception digitale", subtitle: "Quand le site ne reflète plus l’entreprise", href: "#insights" },
           { title: "Framer, Shopify ou custom ?", subtitle: "Choisir selon le modèle économique", href: "#insights" },
           { title: "Refonte & SEO", subtitle: "Préserver ce qui fonctionne", href: "#insights" },
         ],
