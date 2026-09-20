@@ -310,7 +310,7 @@ export function HomeSections() {
             ["SEO","Refondre sans sacrifier le SEO","Préserver ce qui fonctionne, migrer proprement et reconstruire les fondations qui limitent la visibilité."],
           ].map(([kicker,title,copy], index)=>(
             <Reveal key={title} delay={index * 0.06}>
-              <article><span>{kicker}</span><h3>{title}</h3><p>{copy}</p><b>En préparation</b></article>
+              <article><span>{kicker}</span><h3>{title}</h3><p>{copy}</p></article>
             </Reveal>
           ))}
         </div>
