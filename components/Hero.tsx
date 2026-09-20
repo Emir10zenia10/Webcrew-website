@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { HeroWebGL } from "@/components/HeroWebGL";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 import { useRef } from "react";
 import type { MouseEvent } from "react";
@@ -88,6 +89,8 @@ export function Hero() {
           transition={{ duration: 0.92, delay: 0.2, ease }}
           aria-label="Projection visuelle de l’expertise WebCrew"
         >
+          <HeroWebGL />
+
           <motion.div className="motionLayer motionLayerFar" style={reducedMotion ? undefined : { y: farY }}>
             <div className="sceneAura" />
             <svg className="depthMesh" viewBox="0 0 620 420" aria-hidden="true">
