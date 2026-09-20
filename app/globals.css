@@ -158,3 +158,8 @@ body{font-family:var(--font-sans),"Helvetica Neue",Arial,sans-serif}
 .methodGrid>div{position:relative;overflow:hidden}.methodGrid>div:after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--green-dark);transition:right .6s cubic-bezier(.22,1,.36,1)}.methodGrid>div:hover:after{right:0}.methodGrid article{transition:transform .45s cubic-bezier(.22,1,.36,1)}.methodGrid>div:hover article{transform:translateY(-4px)}
 .technologyList>div{position:relative}.technologyList>div:before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--green);transform:scaleY(0);transform-origin:top;transition:transform .4s cubic-bezier(.22,1,.36,1)}.technologyList>div:hover:before{transform:scaleY(1)}
 @media(prefers-reduced-motion:reduce){.methodGrid article{transition:none}.methodGrid>div:after,.technologyList>div:before{transition:none}}
+
+/* Lightweight real WebGL layer */
+.heroWebGL{position:absolute;z-index:0;inset:2% -7% 4% 8%;width:99%;height:94%;pointer-events:none;opacity:.72;mix-blend-mode:multiply;filter:blur(.05px);transform:translateZ(-155px)}
+@media(max-width:1180px){.heroWebGL{inset:4% -2% 6% 4%;width:98%;opacity:.62}}
+@media(max-width:760px){.heroWebGL{display:none}}
