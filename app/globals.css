@@ -243,3 +243,24 @@ body{font-family:var(--font-sans),"Helvetica Neue",Arial,sans-serif}
 .megaOpen.siteHeader:after{content:"";position:fixed;z-index:60;left:0;right:0;top:82px;bottom:0;background:#10140f14;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);pointer-events:none}
 @media(max-width:1260px){.megaMenu{grid-template-columns:200px minmax(0,1fr) 290px;gap:26px;padding:28px}.megaMenuShell{width:calc(100vw - 48px)}}
 @media(max-width:1180px){.megaMenuShell{display:none}.mainNav{display:none}.megaOpen.siteHeader:after{display:none}}
+
+/* Local premium motion only — isolated from global theme and typography */
+.workCard article{transform:translateY(0);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.workCard:hover article{transform:translateY(-8px)}
+.workVisual{transition:box-shadow .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.workCard:hover .workVisual{box-shadow:0 28px 72px #14211618}
+.workMock{transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.workCard:hover .workMock{transform:scale(1.018)}
+.caseDeviceDesktop{transition:transform .75s cubic-bezier(.22,1,.36,1),box-shadow .75s cubic-bezier(.22,1,.36,1)}
+.featuredCaseVisual:hover .caseDeviceDesktop{transform:translateY(-8px) rotate(-.5deg);box-shadow:0 38px 90px #00000024}
+.caseDeviceMobile{transition:transform .75s cubic-bezier(.22,1,.36,1)}
+.featuredCaseVisual:hover .caseDeviceMobile{transform:translate(8px,-12px) rotate(2deg)}
+.caseSystemCard{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.featuredCaseVisual:hover .caseSystemCard{transform:translateY(-6px)}
+.megaVisualWindowFront,.megaVisualWindowBack,.megaVisualOrb{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.megaVisual:hover .megaVisualWindowFront{transform:translateZ(72px) rotateY(5deg) rotateZ(-2deg)}
+.megaVisual:hover .megaVisualWindowBack{transform:translateZ(-20px) rotateY(-11deg) rotateZ(7deg)}
+.megaVisual:hover .megaVisualOrb{transform:translateZ(112px) translate(-6px,-8px)}
+@media(prefers-reduced-motion:reduce){
+  .workCard article,.workVisual,.workMock,.caseDeviceDesktop,.caseDeviceMobile,.caseSystemCard,.megaVisualWindowFront,.megaVisualWindowBack,.megaVisualOrb{transition:none!important;transform:none!important}
+}
