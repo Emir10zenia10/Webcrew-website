@@ -19,8 +19,8 @@ const technology = [
   ["Framer", "Sites marketing rapides, premium et simples à faire vivre."],
   ["Shopify", "Commerce, catalogue, conversion et autonomie des équipes."],
   ["Search", "SEO, structure, migration et visibilité pensée dès la conception."],
-  ["AI", "Accélérer la recherche, la production et les futurs produits sans en faire un gimmick."],
-  ["Creative Development", "Interactions, composants et expériences custom quand le besoin le justifie."],
+  ["Automatisation & IA", "Accélérer certaines tâches et enrichir les usages quand cela apporte une vraie valeur."],
+  ["Développement créatif", "Interactions, composants et expériences sur mesure quand le besoin le justifie."],
 ] as const;
 
 function CleanyWorkVisual() {
@@ -223,7 +223,7 @@ export function HomeSections() {
         <Reveal className="technologyIntro">
           
           <h2 id="technology-title">La technologie vient<br />après le besoin.</h2>
-          <p>Framer, Shopify, Search, IA ou développement custom : nous choisissons la couche qui rend le système plus performant, plus maintenable et plus simple pour les équipes.</p>
+          <p>Framer, Shopify, SEO, IA ou développement sur mesure : nous choisissons la couche qui rend le système plus performant, plus maintenable et plus simple pour les équipes.</p>
         </Reveal>
 
         <div className="technologyList">
