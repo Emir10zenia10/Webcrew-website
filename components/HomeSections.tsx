@@ -72,7 +72,7 @@ function MpWorkVisual() {
 export function HomeSections() {
   return (
     <>
-      <section className="workSection" id="realisations" data-atmosphere="paper" aria-labelledby="work-title">
+      <section className="workSection" id="realisations" aria-labelledby="work-title">
         <Reveal className="sectionHead">
           <div>
             
@@ -114,7 +114,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="situationSection" id="expertises" data-atmosphere="paper" aria-labelledby="expertises-title">
+      <section className="situationSection" id="expertises" aria-labelledby="expertises-title">
         <div className="sectionBridge"><span>Deux contextes, une même exigence : faire suivre le digital au rythme de l’entreprise.</span></div>
         <Reveal className="sectionHead sectionHeadTight">
           <div>
@@ -169,7 +169,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="featuredCaseSection" data-atmosphere="forest" aria-labelledby="featured-case-title">
+      <section className="featuredCaseSection" aria-labelledby="featured-case-title">
         <Reveal className="featuredCaseShell">
           <div className="featuredCaseCopy">
             <div className="eyebrow eyebrowLight">CAS CLIENT — CLEANY</div>
@@ -199,7 +199,7 @@ export function HomeSections() {
         </Reveal>
       </section>
 
-      <section className="methodSection" id="methodologie" data-atmosphere="ivory" aria-labelledby="method-title">
+      <section className="methodSection" id="methodologie" aria-labelledby="method-title">
         <Reveal className="methodIntro">
           <h2 id="method-title">Le design arrive<br />après les bonnes questions.</h2>
           <p>Nous avançons du business vers le système digital — pas l’inverse. C’est ce qui évite les refontes esthétiques qui vieillissent vite ou ne changent rien commercialement.</p>
@@ -219,7 +219,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="technologySection" data-atmosphere="ink" aria-labelledby="technology-title">
+      <section className="technologySection" aria-labelledby="technology-title">
         <Reveal className="technologyIntro">
           
           <h2 id="technology-title">La technologie vient<br />après le besoin.</h2>
@@ -240,7 +240,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="autonomySection" data-atmosphere="mint" aria-labelledby="autonomy-title">
+      <section className="autonomySection" aria-labelledby="autonomy-title">
         <Reveal className="autonomyIntro">
           
           <h2 id="autonomy-title">Votre équipe garde la main.</h2>
@@ -258,7 +258,7 @@ export function HomeSections() {
         </Reveal>
       </section>
 
-      <section className="founderSection" id="apropos" data-atmosphere="ivory" aria-labelledby="founder-title">
+      <section className="founderSection" id="apropos" aria-labelledby="founder-title">
         <Reveal className="founderMedia">
           <div className="founderMediaTop"><span>FOUNDER / POINT OF VIEW</span><span>00:58</span></div>
           <div className="founderVideoPlaceholder">
@@ -275,7 +275,7 @@ export function HomeSections() {
         </Reveal>
       </section>
 
-      <section className="insightsSection" id="insights" data-atmosphere="paper" aria-labelledby="insights-title">
+      <section className="insightsSection" id="insights" aria-labelledby="insights-title">
         <Reveal className="sectionHead">
           <div>
             
@@ -298,7 +298,7 @@ export function HomeSections() {
       </section>
 
       <Reveal>
-        <section className="partnerSection" id="partenaires" data-atmosphere="mint" aria-label="Système d’apport d’affaires">
+        <section className="partnerSection" id="partenaires" aria-label="Système d’apport d’affaires">
           <div>
             
             <h2>Vous faites l’introduction.<br />Nous prenons la suite.</h2>
@@ -311,7 +311,7 @@ export function HomeSections() {
       </Reveal>
 
       <Reveal>
-        <section className="finalCtaSection" data-atmosphere="night" aria-labelledby="final-cta-title">
+        <section className="finalCtaSection" aria-labelledby="final-cta-title">
           <div className="finalCtaGlow" />
           
           <h2 id="final-cta-title">Votre site est-il encore<br />au niveau de votre entreprise ?</h2>
