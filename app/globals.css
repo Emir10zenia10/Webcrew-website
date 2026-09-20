@@ -57,3 +57,7 @@
 
 .sceneSideNote{position:absolute;z-index:14;right:-3.5%;top:12%;display:flex;flex-direction:column;align-items:flex-start;gap:10px;color:#555850;font:6.4px var(--font-plex-mono),monospace;letter-spacing:.22em;line-height:1.65}.sceneSideNote i{display:block;width:1px;height:36px;background:#3f493f;position:relative}.sceneSideNote i:first-child:after,.sceneSideNote i:last-child:after{content:"";position:absolute;width:5px;height:5px;left:-2px;border-radius:50%;background:#3f493f}.sceneSideNote i:first-child:after{top:0}.sceneSideNote i:last-child:after{bottom:0}
 @media(max-width:1180px){.sceneSideNote{right:2%}}@media(max-width:760px){.sceneSideNote{display:none}}
+
+/* QA pass — above-the-fold performance */
+.heroScrollCue{bottom:0}.heroCopy h1,.heroLead,.heroActions{will-change:transform}.heroScene{will-change:transform}.workSection,.situationSection,.featuredCaseSection,.methodSection,.technologySection,.autonomySection,.founderSection,.insightsSection,.partnerSection{content-visibility:auto;contain-intrinsic-size:auto 760px}
+@media(max-width:760px){.heroScrollCue{bottom:0}}
