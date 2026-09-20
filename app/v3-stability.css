@@ -211,3 +211,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Canonical vertical rhythm */
+.workSection{padding-top:124px;padding-bottom:126px}
+.situationSection{padding-top:124px;padding-bottom:132px}
+.featuredCaseSection{padding-top:112px;padding-bottom:126px}
+.methodSection{padding-top:126px;padding-bottom:126px}
+.technologySection{padding-top:126px;padding-bottom:126px}
+.autonomySection{padding-top:126px;padding-bottom:126px}
+.founderSection{padding-top:126px;padding-bottom:126px}
+.insightsSection{padding-top:126px;padding-bottom:126px}
+.partnerSection{padding-top:96px;padding-bottom:96px}
+@media(max-width:760px){
+  .workSection,.situationSection,.featuredCaseSection,.methodSection,.technologySection,.autonomySection,.founderSection,.insightsSection{padding-top:86px;padding-bottom:90px}
+  .partnerSection{padding-top:72px;padding-bottom:72px}
+}
