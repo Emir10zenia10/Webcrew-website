@@ -17,7 +17,7 @@ export function PerceptionGap() {
       <div className="gapTopMark"><span /></div>
       <div className="gapGrid">
         <div className="gapHeading">
-          <h2 id="gap-title">Votre entreprise vaut peut-être <em>plus</em> que ce que votre site laisse paraître.</h2>
+          <h2 id="gap-title">Une entreprise peut être <em>meilleure</em><br />que ce que son site laisse paraître.</h2>
         </div>
         <div className="gapCopy">
           <p>Votre entreprise a grandi. Votre offre, votre équipe et la confiance de vos clients aussi. Pourtant, votre site peut encore raconter une version plus petite, plus ancienne ou moins convaincante de votre réalité.</p>
