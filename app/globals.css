@@ -264,3 +264,25 @@ body{font-family:var(--font-sans),"Helvetica Neue",Arial,sans-serif}
 @media(prefers-reduced-motion:reduce){
   .workCard article,.workVisual,.workMock,.caseDeviceDesktop,.caseDeviceMobile,.caseSystemCard,.megaVisualWindowFront,.megaVisualWindowBack,.megaVisualOrb{transition:none!important;transform:none!important}
 }
+
+/* Real client asset pass — Cleany */
+.cleanyLiveImage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.projectImage:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 54%,#0b160d36);pointer-events:none}
+.realAssetBadge{z-index:2;background:#f7f6f0e8;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.cleanyMockMediaLive{position:relative;overflow:hidden}
+.cleanyMockMediaLive>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;transition:transform .85s cubic-bezier(.22,1,.36,1)}
+.workCard:hover .cleanyMockMediaLive>img{transform:scale(1.035)}
+.cleanyMockMediaLive>span{position:absolute;z-index:2;left:14px;bottom:14px;padding:7px 9px;border-radius:999px;background:#f7f6f0d9;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#172119;font-size:7px;letter-spacing:.08em;font-style:normal}
+.caseMediaLive{position:relative;overflow:hidden;background:#101810}
+.caseMediaLive>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.86;transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .5s ease}
+.featuredCaseVisual:hover .caseMediaLive>img{transform:scale(1.025);opacity:.96}
+.caseMediaLive:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b150da8 0%,#0b150d26 48%,transparent 78%);pointer-events:none}
+.caseMediaLive .caseMediaCopy,.caseMediaLive em{z-index:2}
+.caseMobileLive{position:relative;overflow:hidden}
+.caseMobileLive>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.78}
+.caseMobileLive:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,#0b160d8c)}
+.caseMobileLive strong,.caseMobileLive span{position:relative;z-index:2;color:#fff}
+.megaVisualRealImage{position:absolute;z-index:-1;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.47;filter:saturate(.7) contrast(1.05)}
+.megaVisual--work:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(145deg,#102013cc,#0b140ce8 78%)}
+.megaVisual--work .megaVisualCanvas{opacity:.74}
+@media(prefers-reduced-motion:reduce){.cleanyMockMediaLive>img,.caseMediaLive>img{transition:none!important}}
