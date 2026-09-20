@@ -200,11 +200,8 @@ export function HomeSections() {
       </section>
 
       <section className="methodSection" id="methodologie" aria-labelledby="method-title">
-        <Reveal className="sectionHead">
-          <div>
-            
-            <h2 id="method-title">Le design arrive<br />après les bonnes questions.</h2>
-          </div>
+        <Reveal className="methodIntro">
+          <h2 id="method-title">Le design arrive<br />après les bonnes questions.</h2>
           <p>Nous avançons du business vers le système digital — pas l’inverse. C’est ce qui évite les refontes esthétiques qui vieillissent vite ou ne changent rien commercialement.</p>
         </Reveal>
 
