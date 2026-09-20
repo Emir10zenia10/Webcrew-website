@@ -45,6 +45,7 @@ const navItems = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const lastY = useRef(0);
 
@@ -54,6 +55,7 @@ export function Header() {
     const onScroll = () => {
       const current = window.scrollY;
       const delta = current - lastY.current;
+      setScrolled(current > 18);
 
       if (open || activeMenu) {
         setHidden(false);
@@ -86,7 +88,7 @@ export function Header() {
   return (
     <>
       <a className="skipLink" href="#main-content">Aller au contenu</a>
-      <header className={`siteHeader ${hidden ? "headerHidden" : ""} ${open ? "menuOpen" : ""}`}>
+      <header className={`siteHeader ${hidden ? "headerHidden" : ""} ${scrolled ? "headerScrolled" : "headerAtTop"} ${open ? "menuOpen" : ""}`}>
         <div className="siteHeaderInner">
           <Link href="/" className="brandLockup" aria-label="WebCrew — accueil" onClick={() => setOpen(false)}>
             <span className="brandWord">WebCrew</span>
