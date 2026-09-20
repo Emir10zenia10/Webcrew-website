@@ -153,6 +153,7 @@ const navItems: NavItem[] = [
 function MegaVisual({ visual }: { visual: NavItem["visual"] }) {
   return (
     <div className={`megaVisual megaVisual--${visual.variant}`}>
+      {visual.variant === "work" ? <img className="megaVisualRealImage" src="https://framerusercontent.com/images/KtYAHPwJkffUodi86sKuP0eHI.png?height=1086&width=1448" alt="" /> : null}
       <div className="megaVisualTop">
         <span>{visual.eyebrow}</span>
         <i aria-hidden="true">↗</i>
