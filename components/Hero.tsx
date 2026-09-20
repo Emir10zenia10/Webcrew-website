@@ -183,7 +183,7 @@ export function Hero() {
             <div className="mobilePreview" aria-hidden="true">
               <div className="mobileNotch" />
               <span className="mobileBrand">Cleany</span>
-              <strong>Un environnement<br />plus simple.</strong>
+              <strong>Refonte B2B<br />Cleany.</strong>
               <div className="mobileMedia"><i /></div>
             </div>
           </motion.div>
@@ -198,8 +198,8 @@ export function Hero() {
               <div className="projectScreen">
                 <div className="projectLeft">
                   <div className="projectBrand"><span>◉</span> Cleany</div>
-                  <div className="projectHeadline">Des espaces<br />plus sains pour<br />des entreprises<br />plus fortes.</div>
-                  <div className="projectSub">Propreté, services et environnement<br />de travail.</div>
+                  <div className="projectHeadline">Propreté.<br />Office Life.<br />Multitechnique.</div>
+                  <div className="projectSub">Projection temporaire de la refonte.<br />Capture réelle à intégrer.</div>
                   <div className="projectButton">Découvrir le projet <span>→</span></div>
                 </div>
                 <div className="projectImage" aria-label="Emplacement réservé à une vraie capture Cleany">
