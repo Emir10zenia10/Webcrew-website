@@ -62,6 +62,11 @@ export function Hero() {
           <div className="sceneVerticalLabel sceneVerticalLabelRight" aria-hidden="true">
             <span>FRAMER</span><span>SHOPIFY</span><span>SEO</span><span>IA</span><span>PERFORMANCE</span>
           </div>
+          <div className="sceneSideNote" aria-hidden="true">
+            <i />
+            <span>DES SITES<br />QUI FONT<br />GRANDIR<br />VOS AMBITIONS</span>
+            <i />
+          </div>
 
           <div className="insightCard insightCardSearch">
             <span className="insightKicker">VISIBILITÉ</span><strong>SEO</strong>
