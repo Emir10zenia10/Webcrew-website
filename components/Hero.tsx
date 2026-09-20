@@ -31,16 +31,16 @@ export function Hero() {
             AGENCE WEB — STRATÉGIE · FRAMER · SHOPIFY
           </motion.div>
           <motion.h1 id="hero-title"
-            variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.72, ease } } }}>
+            variants={{ hidden: { y: 22 }, show: { y: 0, transition: { duration: 0.72, ease } } }}>
             <strong>Votre entreprise<br />a évolué.</strong>
             <span>Votre site doit être<br />à son niveau.</span>
           </motion.h1>
           <motion.p className="heroLead"
-            variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.58, ease } } }}>
+            variants={{ hidden: { y: 14 }, show: { y: 0, transition: { duration: 0.58, ease } } }}>
             Aujourd’hui, votre site doit inspirer confiance, gagner en visibilité et mieux convertir l’intérêt qu’il génère.
           </motion.p>
           <motion.div className="heroActions"
-            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.52, ease } } }}>
+            variants={{ hidden: { y: 12 }, show: { y: 0, transition: { duration: 0.52, ease } } }}>
             <Link href="/demande-de-devis" className="heroPrimary"><span>Parler de votre projet</span><span aria-hidden="true">↗</span></Link>
             <a href="#realisations" className="heroSecondary"><span>Voir nos réalisations</span><span aria-hidden="true">→</span></a>
           </motion.div>
@@ -48,8 +48,8 @@ export function Hero() {
 
         <motion.div className="heroScene" onMouseMove={move} onMouseLeave={reset}
           style={{ rotateX: rx, rotateY: ry }}
-          initial={reducedMotion ? false : { opacity: 0, scale: 0.97, x: 34 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          initial={reducedMotion ? false : { scale: 0.985, x: 24 }}
+          animate={{ scale: 1, x: 0 }}
           transition={{ duration: 0.92, delay: 0.2, ease }}
           aria-label="Projection visuelle de l’expertise WebCrew">
           <div className="sceneAura" />
