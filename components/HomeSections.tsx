@@ -275,7 +275,7 @@ export function HomeSections() {
 
       <section className="founderSection" id="apropos" aria-labelledby="founder-title">
         <Reveal className="founderMedia">
-          <div className="founderMediaTop"><span>FOUNDER / POINT OF VIEW</span><span>À VENIR</span></div>
+          <div className="founderMediaTop"><span>WEBCREW / POINT DE VUE</span><span>NANTES</span></div>
           <div className="founderVideoPlaceholder founderPointOfView">
             <div className="founderMonogram" aria-hidden="true"><span>W</span><i /></div>
             <div className="founderPointCopy">
