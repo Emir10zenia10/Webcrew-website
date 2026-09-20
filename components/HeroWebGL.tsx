@@ -20,6 +20,7 @@ export function HeroWebGL() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    if (window.matchMedia("(max-width: 760px)").matches) return;
 
     const gl = canvas.getContext("webgl", {
       alpha: true,
@@ -137,7 +138,10 @@ export function HeroWebGL() {
     const target = { x: 0, y: 0 };
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
-    let start = performance.now();
+    let inViewport = true;
+    let pageVisible = !document.hidden;
+    let previousFrame = performance.now();
+    let elapsed = 0;
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -163,34 +167,79 @@ export function HeroWebGL() {
       target.y = 0;
     };
 
+    const shouldAnimate = () => !reduced && inViewport && pageVisible;
+
     const render = (now: number) => {
+      raf = 0;
       resize();
+
+      const delta = Math.min((now - previousFrame) / 1000, 0.05);
+      previousFrame = now;
+      if (!reduced) elapsed += delta;
+
       pointer.x += (target.x - pointer.x) * 0.045;
       pointer.y += (target.y - pointer.y) * 0.045;
 
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.uniform1f(uTime, reduced ? 0.9 : (now - start) / 1000);
+      gl.uniform1f(uTime, reduced ? 0.9 : elapsed);
       gl.uniform2f(uPointer, pointer.x, pointer.y);
       gl.uniform1f(uAspect, canvas.width / Math.max(1, canvas.height));
       gl.drawArrays(gl.LINES, 0, vertices.length / 3);
 
-      if (!reduced) raf = requestAnimationFrame(render);
+      if (shouldAnimate()) raf = requestAnimationFrame(render);
+    };
+
+    const requestRender = () => {
+      if (raf || !shouldAnimate()) return;
+      previousFrame = performance.now();
+      raf = requestAnimationFrame(render);
     };
 
     const parent = canvas.parentElement;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inViewport = entry.isIntersecting;
+        if (!inViewport && raf) {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        } else if (inViewport) {
+          requestRender();
+        }
+      },
+      { rootMargin: "120px 0px", threshold: 0.01 }
+    );
+
+    const onVisibilityChange = () => {
+      pageVisible = !document.hidden;
+      if (!pageVisible && raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      } else {
+        requestRender();
+      }
+    };
+
     parent?.addEventListener("pointermove", onPointerMove, { passive: true });
     parent?.addEventListener("pointerleave", onPointerLeave);
     window.addEventListener("resize", resize, { passive: true });
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    observer.observe(canvas);
 
     resize();
-    render(start);
+    if (reduced) {
+      render(performance.now());
+    } else {
+      requestRender();
+    }
 
     return () => {
       cancelAnimationFrame(raf);
+      observer.disconnect();
       parent?.removeEventListener("pointermove", onPointerMove);
       parent?.removeEventListener("pointerleave", onPointerLeave);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
       gl.deleteShader(vertex);
