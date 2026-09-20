@@ -10,115 +10,194 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
-  const rx = useSpring(useMotionValue(0), { stiffness: 95, damping: 20, mass: 0.7 });
-  const ry = useSpring(useMotionValue(0), { stiffness: 95, damping: 20, mass: 0.7 });
+
+  const rx = useSpring(useMotionValue(0), { stiffness: 90, damping: 19, mass: 0.72 });
+  const ry = useSpring(useMotionValue(0), { stiffness: 90, damping: 19, mass: 0.72 });
+
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const sceneY = useTransform(scrollYProgress, [0, 1], [0, -62]);
-  const sceneScale = useTransform(scrollYProgress, [0, 0.85], [1, 0.94]);
-  const farY = useTransform(scrollYProgress, [0, 1], [0, -18]);
-  const midY = useTransform(scrollYProgress, [0, 1], [0, -42]);
-  const frontY = useTransform(scrollYProgress, [0, 1], [0, -88]);
-  const orbitRotate = useTransform(scrollYProgress, [0, 1], [0, 42]);
-  const copyY = useTransform(scrollYProgress, [0, 1], [0, -24]);
+  const sceneY = useTransform(scrollYProgress, [0, 1], [0, -58]);
+  const sceneScale = useTransform(scrollYProgress, [0, 0.88], [1, 0.945]);
+  const farY = useTransform(scrollYProgress, [0, 1], [0, -16]);
+  const midY = useTransform(scrollYProgress, [0, 1], [0, -38]);
+  const frontY = useTransform(scrollYProgress, [0, 1], [0, -82]);
+  const orbitRotate = useTransform(scrollYProgress, [0, 1], [0, 34]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -22]);
 
   const move = (event: MouseEvent<HTMLDivElement>) => {
     if (reducedMotion) return;
     const r = event.currentTarget.getBoundingClientRect();
     const px = (event.clientX - r.left) / r.width - 0.5;
     const py = (event.clientY - r.top) / r.height - 0.5;
-    rx.set(py * -2.35);
-    ry.set(px * 2.85);
+    rx.set(py * -4.2);
+    ry.set(px * 5.2);
   };
-  const reset = () => { rx.set(0); ry.set(0); };
+
+  const reset = () => {
+    rx.set(0);
+    ry.set(0);
+  };
 
   return (
     <section className="hero" ref={heroRef} aria-labelledby="hero-title">
       <div className="heroInner">
-        <motion.div className="heroCopy" style={reducedMotion ? undefined : { y: copyY }} initial={reducedMotion ? false : "hidden"} animate="show"
-          variants={{ show: { transition: { staggerChildren: 0.07, delayChildren: 0.08 } } }}>
-          <motion.div className="eyebrow"
-            variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } } }}>
+        <motion.div
+          className="heroCopy"
+          style={reducedMotion ? undefined : { y: copyY }}
+          initial={reducedMotion ? false : "hidden"}
+          animate="show"
+          variants={{ show: { transition: { staggerChildren: 0.07, delayChildren: 0.08 } } }}
+        >
+          <motion.div
+            className="eyebrow"
+            variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } } }}
+          >
             AGENCE WEB — STRATÉGIE · FRAMER · SHOPIFY
           </motion.div>
-          <motion.h1 id="hero-title"
-            variants={{ hidden: { y: 22 }, show: { y: 0, transition: { duration: 0.72, ease } } }}>
+
+          <motion.h1
+            id="hero-title"
+            variants={{ hidden: { y: 22 }, show: { y: 0, transition: { duration: 0.72, ease } } }}
+          >
             <strong>Votre entreprise<br />a évolué.</strong>
             <span>Votre site doit être<br />à son niveau.</span>
           </motion.h1>
-          <motion.p className="heroLead"
-            variants={{ hidden: { y: 14 }, show: { y: 0, transition: { duration: 0.58, ease } } }}>
+
+          <motion.p
+            className="heroLead"
+            variants={{ hidden: { y: 14 }, show: { y: 0, transition: { duration: 0.58, ease } } }}
+          >
             Aujourd’hui, votre site doit inspirer confiance, gagner en visibilité et mieux convertir l’intérêt qu’il génère.
           </motion.p>
-          <motion.div className="heroActions"
-            variants={{ hidden: { y: 12 }, show: { y: 0, transition: { duration: 0.52, ease } } }}>
+
+          <motion.div
+            className="heroActions"
+            variants={{ hidden: { y: 12 }, show: { y: 0, transition: { duration: 0.52, ease } } }}
+          >
             <Link href="/demande-de-devis" className="heroPrimary"><span>Parler de votre projet</span><span aria-hidden="true">↗</span></Link>
             <a href="#realisations" className="heroSecondary"><span>Voir nos réalisations</span><span aria-hidden="true">→</span></a>
           </motion.div>
         </motion.div>
 
-        <motion.div className="heroScene" onMouseMove={move} onMouseLeave={reset}
+        <motion.div
+          className="heroScene"
+          onMouseMove={move}
+          onMouseLeave={reset}
           style={reducedMotion ? undefined : { rotateX: rx, rotateY: ry, y: sceneY, scale: sceneScale }}
           initial={reducedMotion ? false : { scale: 0.985, x: 24 }}
           animate={{ scale: 1, x: 0 }}
           transition={{ duration: 0.92, delay: 0.2, ease }}
-          aria-label="Projection visuelle de l’expertise WebCrew">
-          <motion.div className="sceneAura" style={reducedMotion ? undefined : { y: farY }} />
-          <motion.div className="sceneOrbit sceneOrbitOuter" style={reducedMotion ? undefined : { rotate: orbitRotate }} />
-          <motion.div className="sceneOrbit sceneOrbitInner" style={reducedMotion ? undefined : { rotate: orbitRotate }} />
-          <motion.div className="scenePlane scenePlaneFar" style={reducedMotion ? undefined : { y: farY }} />
-          <motion.div className="scenePlane scenePlaneMid" style={reducedMotion ? undefined : { y: midY }} />
-          <motion.div className="scenePlane scenePlaneNear" style={reducedMotion ? undefined : { y: frontY }} />
+          aria-label="Projection visuelle de l’expertise WebCrew"
+        >
+          <motion.div className="motionLayer motionLayerFar" style={reducedMotion ? undefined : { y: farY }}>
+            <div className="sceneAura" />
+            <svg className="depthMesh" viewBox="0 0 620 420" aria-hidden="true">
+              <defs>
+                <linearGradient id="meshStroke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#173c1b" stopOpacity=".08" />
+                  <stop offset="52%" stopColor="#10ef1a" stopOpacity=".32" />
+                  <stop offset="100%" stopColor="#173c1b" stopOpacity=".06" />
+                </linearGradient>
+              </defs>
+              <g>
+                <path d="M36 330 C118 206 220 175 336 198 C442 219 500 145 590 68" />
+                <path d="M18 366 C116 239 222 215 342 234 C454 252 520 184 606 105" />
+                <path d="M64 289 C150 181 245 145 351 166 C448 185 492 116 566 38" />
+                <path d="M111 402 C177 269 262 255 358 268 C461 282 542 223 616 154" />
+                <path d="M138 70 C197 133 204 212 180 307 C165 360 196 394 244 420" />
+                <path d="M236 24 C279 91 281 172 258 258 C240 327 261 379 300 420" />
+                <path d="M344 0 C374 73 378 148 354 225 C328 308 348 371 381 420" />
+                <path d="M452 10 C472 78 477 142 455 207 C425 295 442 364 467 420" />
+              </g>
+            </svg>
+          </motion.div>
+
+          <motion.div className="motionLayer" style={reducedMotion ? undefined : { rotate: orbitRotate }}>
+            <div className="sceneOrbit sceneOrbitOuter" />
+            <div className="sceneOrbit sceneOrbitInner" />
+          </motion.div>
+
+          <motion.div className="motionLayer motionLayerFar" style={reducedMotion ? undefined : { y: farY }}>
+            <div className="scenePlane scenePlaneFar" />
+          </motion.div>
+
+          <motion.div className="motionLayer motionLayerMid" style={reducedMotion ? undefined : { y: midY }}>
+            <div className="scenePlane scenePlaneMid" />
+          </motion.div>
+
+          <motion.div className="motionLayer motionLayerFront" style={reducedMotion ? undefined : { y: frontY }}>
+            <div className="scenePlane scenePlaneNear" />
+          </motion.div>
+
           <div className="sceneVerticalLabel sceneVerticalLabelLeft" aria-hidden="true">
             <span>STRATÉGIE</span><span>BRAND</span><span>EXPÉRIENCE</span><span>TECHNOLOGIE</span><span>SEARCH</span>
           </div>
+
           <div className="sceneVerticalLabel sceneVerticalLabelRight" aria-hidden="true">
             <span>FRAMER</span><span>SHOPIFY</span><span>SEO</span><span>IA</span><span>PERFORMANCE</span>
           </div>
+
           <div className="sceneSideNote" aria-hidden="true">
             <i />
             <span>DES SITES<br />QUI FONT<br />GRANDIR<br />VOS AMBITIONS</span>
             <i />
           </div>
 
-          <motion.div className="insightCard insightCardSearch" style={reducedMotion ? undefined : { y: frontY }}>
-            <span className="insightKicker">VISIBILITÉ</span><strong>SEO</strong>
-            <svg viewBox="0 0 120 54" role="img" aria-label="Illustration de progression SEO">
-              <path className="chartGrid" d="M4 45H116M4 28H116M4 11H116" />
-              <path className="chartLine" d="M5 42 C18 38 21 29 32 31 S49 22 58 25 S73 13 84 17 S101 8 115 6" />
-            </svg>
-            <small>Architecture · contenu · migration</small>
-          </motion.div>
-
-          <motion.div className="insightCard insightCardCommerce" style={reducedMotion ? undefined : { y: midY }}>
-            <span className="insightKicker">COMMERCE</span><strong>Shopify</strong>
-            <div className="commerceBars" aria-hidden="true"><i /><i /><i /><i /><i /></div>
-            <small>Conversion · autonomie · opérations</small>
-          </motion.div>
-
-          <motion.div className="mobilePreview" style={reducedMotion ? undefined : { y: frontY }} aria-hidden="true">
-            <div className="mobileNotch" /><span className="mobileBrand">Cleany</span>
-            <strong>Un environnement<br />plus simple.</strong><div className="mobileMedia"><i /></div>
-          </motion.div>
-
-          <motion.div className="mainDevice" style={reducedMotion ? undefined : { y: midY }}>
-            <div className="browserTop">
-              <div className="browserDots"><span /><span /><span /></div>
-              <div className="browserNav">Solutions&nbsp;&nbsp;&nbsp; Réalisations&nbsp;&nbsp;&nbsp; À propos</div>
-              <div className="browserContact">Nous contacter</div>
+          <motion.div className="motionLayer motionLayerFront" style={reducedMotion ? undefined : { y: frontY }}>
+            <div className="insightCard insightCardSearch">
+              <span className="insightKicker">VISIBILITÉ</span>
+              <strong>SEO</strong>
+              <svg viewBox="0 0 120 54" role="img" aria-label="Illustration de progression SEO">
+                <path className="chartGrid" d="M4 45H116M4 28H116M4 11H116" />
+                <path className="chartLine" d="M5 42 C18 38 21 29 32 31 S49 22 58 25 S73 13 84 17 S101 8 115 6" />
+              </svg>
+              <small>Architecture · contenu · migration</small>
             </div>
-            <div className="projectScreen">
-              <div className="projectLeft">
-                <div className="projectBrand"><span>◉</span> Cleany</div>
-                <div className="projectHeadline">Des espaces<br />plus sains pour<br />des entreprises<br />plus fortes.</div>
-                <div className="projectSub">Propreté, services et environnement<br />de travail.</div>
-                <div className="projectButton">Découvrir le projet <span>→</span></div>
+          </motion.div>
+
+          <motion.div className="motionLayer motionLayerMid" style={reducedMotion ? undefined : { y: midY }}>
+            <div className="insightCard insightCardCommerce">
+              <span className="insightKicker">COMMERCE</span>
+              <strong>Shopify</strong>
+              <div className="commerceBars" aria-hidden="true"><i /><i /><i /><i /><i /></div>
+              <small>Conversion · autonomie · opérations</small>
+            </div>
+          </motion.div>
+
+          <motion.div className="motionLayer motionLayerFront" style={reducedMotion ? undefined : { y: frontY }}>
+            <div className="mobilePreview" aria-hidden="true">
+              <div className="mobileNotch" />
+              <span className="mobileBrand">Cleany</span>
+              <strong>Un environnement<br />plus simple.</strong>
+              <div className="mobileMedia"><i /></div>
+            </div>
+          </motion.div>
+
+          <motion.div className="motionLayer motionLayerMid" style={reducedMotion ? undefined : { y: midY }}>
+            <div className="mainDevice">
+              <div className="browserTop">
+                <div className="browserDots"><span /><span /><span /></div>
+                <div className="browserNav">Solutions&nbsp;&nbsp;&nbsp; Réalisations&nbsp;&nbsp;&nbsp; À propos</div>
+                <div className="browserContact">Nous contacter</div>
               </div>
-              <div className="projectImage" aria-label="Emplacement réservé à une vraie capture Cleany">
-                <div className="architecturalPlaceholder" aria-hidden="true">
-                  <div className="archSky" /><div className="archBuilding archBuildingA" /><div className="archBuilding archBuildingB" />
-                  <div className="archGlass" /><div className="archGreen archGreenOne" /><div className="archGreen archGreenTwo" /><div className="archGround" />
+              <div className="projectScreen">
+                <div className="projectLeft">
+                  <div className="projectBrand"><span>◉</span> Cleany</div>
+                  <div className="projectHeadline">Des espaces<br />plus sains pour<br />des entreprises<br />plus fortes.</div>
+                  <div className="projectSub">Propreté, services et environnement<br />de travail.</div>
+                  <div className="projectButton">Découvrir le projet <span>→</span></div>
                 </div>
-                <span className="realAssetBadge">CAPTURE CLEANY À REMPLACER</span>
+                <div className="projectImage" aria-label="Emplacement réservé à une vraie capture Cleany">
+                  <div className="architecturalPlaceholder" aria-hidden="true">
+                    <div className="archSky" />
+                    <div className="archBuilding archBuildingA" />
+                    <div className="archBuilding archBuildingB" />
+                    <div className="archGlass" />
+                    <div className="archGreen archGreenOne" />
+                    <div className="archGreen archGreenTwo" />
+                    <div className="archGround" />
+                  </div>
+                  <span className="realAssetBadge">CAPTURE CLEANY À REMPLACER</span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -129,12 +208,19 @@ export function Hero() {
 
           <div className="rearMedia rearMediaA"><span>CASE STUDY</span></div>
           <div className="rearMedia rearMediaB"><span>UX / UI</span></div>
+
           <div className="rearCode" aria-hidden="true">
-            <div><span>01</span><b>strategy</b></div><div><span>02</span><b>design_system</b></div><div><span>03</span><b>search_ready</b></div>
+            <div><span>01</span><b>strategy</b></div>
+            <div><span>02</span><b>design_system</b></div>
+            <div><span>03</span><b>search_ready</b></div>
           </div>
-          <div className="sceneStamp" aria-hidden="true"><span>DES IDÉES</span><i>×</i><span>DES RÉSULTATS</span></div>
+
+          <div className="sceneStamp" aria-hidden="true">
+            <span>DES IDÉES</span><i>×</i><span>DES RÉSULTATS</span>
+          </div>
         </motion.div>
       </div>
+
       <div className="heroProof" aria-label="Références et preuve Shopify">
         <div className="logoMarquee" aria-label="Références WebCrew">
           <div className="logoTrack">
@@ -149,9 +235,15 @@ export function Hero() {
             ))}
           </div>
         </div>
-        <div className="shopifyProof"><strong>+2 M€</strong><span>de chiffre d’affaires cumulés sur les boutiques Shopify accompagnées*</span><small className="proofFootnote">* Périmètre et période à documenter avant mise en production.</small></div>
+
+        <div className="shopifyProof">
+          <strong>+2 M€</strong>
+          <span>de chiffre d’affaires cumulés sur les boutiques Shopify accompagnées*</span>
+          <small className="proofFootnote">* Périmètre et période à documenter avant mise en production.</small>
+        </div>
       </div>
-      <a className="heroScrollCue" href="#approche" aria-label="Découvrir le Digital Perception Gap"><span /></a>
+
+      <a className="heroScrollCue" href="#approche" aria-label="Découvrir la suite"><span /></a>
     </section>
   );
 }
